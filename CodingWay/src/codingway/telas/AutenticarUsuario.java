@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codingway.telas;
 
+import codingway.usuario.*;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Cleudy Dantas
+ * @author Dresh
  */
 public class AutenticarUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PesquisaUsuario
-     */
+    Usuario usuario;
+    UsuarioDAO UsuarioDAO = new UsuarioDAO();
+    
     public AutenticarUsuario() {
         initComponents();
     }
@@ -103,8 +99,16 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         if(tfLogin.getText().equals("") || tfSenha.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else {
+            usuario = UsuarioDAO.autenticarUsuario(tfLogin.getText(), tfSenha.getText());
             
-        }
+            if(usuario != null){
+            TelaCadastroUsuario menu = new TelaCadastroUsuario();
+            menu.setVisible(true);
+            dispose();
+            }
+                    
+        }  
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained

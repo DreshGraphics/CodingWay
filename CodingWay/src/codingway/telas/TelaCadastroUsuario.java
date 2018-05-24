@@ -1,6 +1,5 @@
 package codingway.telas;
 
-import codingway.funcionario.*;
 import codingway.usuario.*;
 import codingway.pessoa.*;
 import codingway.util.Util;
@@ -268,8 +267,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         } else { 
             
         usuario.setNome(tfNome.getText().toUpperCase());
-        usuario.setLogin(tfLogin.getText().toUpperCase());
-        usuario.setSenha(tfSenha.getText().toUpperCase());
+        usuario.setLogin(tfLogin.getText());
+        usuario.setSenha(tfSenha.getText());
         usuario.setEmail(tfEmail.getText());
         
         UsuarioDAO.salvar(usuario);
