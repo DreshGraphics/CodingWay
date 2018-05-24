@@ -12,44 +12,58 @@ import javax.persistence.Id;
  * @author Dresh
  */
 @Entity
-public class Usuario extends Pessoa{ 
+public class Usuario{ 
+
+    @Id
+    @GeneratedValue
+    private int IdUsuario;
     
     @Column(length = 100, nullable = false)
-    private String loginUsuario;
-    private String senhaUsuario;
-    private String tipoUsuario;
-    private String emailUsuario;
+    private String login;
+    private String senha;
+    private String nome;
+    private String email;
 
-    public String getLoginUsuario() {
-        return loginUsuario;
+    public int getIdUsuario() {
+        return IdUsuario;
     }
 
-    public void setLoginUsuario(String loginUsuario) {
-        this.loginUsuario = loginUsuario;
+    public void setIdUsuario(int IdUsuario) {
+        this.IdUsuario = IdUsuario;
     }
 
-    public String getSenhaUsuario() {
-        return senhaUsuario;
+    public String getLogin() {
+        return login;
     }
 
-    public void setSenhaUsuario(String senhaUsuario) {
-        this.senhaUsuario = senhaUsuario;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getTipoUsuario() {
-        return tipoUsuario;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getEmailUsuario() {
-        return emailUsuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEmailUsuario(String emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 
 }

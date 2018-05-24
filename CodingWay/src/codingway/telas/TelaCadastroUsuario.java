@@ -29,13 +29,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     
     public void atualizarDados(){
         tfNome.setText(usuario.getNome());
-        tfLogin.setText(usuario.getLoginUsuario());
+        tfLogin.setText(usuario.getLogin());
         tfSenha.setText("*****");
-        tfEmail.setText(usuario.getEmailUsuario());
-        tfCidade.setText(usuario.getCidade());
-        tfEstado.setText(usuario.getEstado());
-        tfBairro.setText(usuario.getBairro());
-        tfEndereco.setText(usuario.getEndereco());
+        tfEmail.setText(usuario.getEmail());
         
     }
     
@@ -44,13 +40,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfLogin.setText("");
         tfSenha.setText("");
         tfEmail.setText("");
-        tfDataNasc.setText("");
-        tfCPF.setText("");
-        tfTelefone.setText("");
-        tfCidade.setText("");
-        tfEstado.setText("");
-        tfBairro.setText("");
-        tfEndereco.setText("");
         
     }
     
@@ -78,8 +67,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -88,23 +75,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfSenha = new javax.swing.JPasswordField();
         tfEmail = new javax.swing.JTextField();
         tfNome = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        tfDataNasc = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tfCPF = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
-        tfTelefone = new javax.swing.JFormattedTextField();
-        jLabel10 = new javax.swing.JLabel();
-        tfCidade = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        tfEstado = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        tfBairro = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        tfEndereco = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         btPesquisar = new javax.swing.JButton();
@@ -122,39 +92,37 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(200, 10, 300, 50);
 
-        jPanel2.setLayout(null);
-
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nome:");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(250, 10, 200, 30);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(250, 90, 200, 30);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Login:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(250, 90, 200, 30);
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(250, 170, 200, 30);
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Senha:");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(250, 170, 200, 30);
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(250, 250, 200, 30);
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Email:");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(250, 250, 200, 30);
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(250, 330, 200, 30);
 
         tfLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel2.add(tfLogin);
-        tfLogin.setBounds(250, 120, 200, 30);
+        jPanel1.add(tfLogin);
+        tfLogin.setBounds(250, 200, 200, 30);
 
         tfSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfSenha.setText("password");
@@ -163,120 +131,16 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 tfSenhaFocusGained(evt);
             }
         });
-        jPanel2.add(tfSenha);
-        tfSenha.setBounds(250, 200, 200, 30);
+        jPanel1.add(tfSenha);
+        tfSenha.setBounds(250, 280, 200, 30);
 
         tfEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel2.add(tfEmail);
-        tfEmail.setBounds(250, 280, 200, 30);
+        jPanel1.add(tfEmail);
+        tfEmail.setBounds(250, 360, 200, 30);
 
         tfNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel2.add(tfNome);
-        tfNome.setBounds(250, 40, 200, 30);
-
-        jTabbedPane1.addTab("Usuario", jPanel2);
-
-        jPanel3.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Sexo");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(50, 10, 200, 30);
-
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
-        jPanel3.add(cbSexo);
-        cbSexo.setBounds(75, 40, 150, 30);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Data de Nascimento");
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(450, 10, 200, 30);
-
-        try {
-            tfDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfDataNasc);
-        tfDataNasc.setBounds(475, 40, 150, 30);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("CPF");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(50, 90, 200, 30);
-
-        try {
-            tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfCPF);
-        tfCPF.setBounds(75, 120, 150, 30);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Telefone");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(450, 90, 200, 30);
-
-        try {
-            tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfTelefone);
-        tfTelefone.setBounds(475, 120, 150, 30);
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Cidade");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(50, 170, 200, 30);
-
-        tfCidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfCidade);
-        tfCidade.setBounds(75, 200, 150, 30);
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Estado");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(450, 170, 200, 30);
-
-        tfEstado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfEstado);
-        tfEstado.setBounds(475, 200, 150, 30);
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Bairro");
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(50, 250, 200, 30);
-
-        tfBairro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfBairro);
-        tfBairro.setBounds(75, 280, 150, 30);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Endereço");
-        jPanel3.add(jLabel13);
-        jLabel13.setBounds(450, 250, 200, 30);
-
-        tfEndereco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(tfEndereco);
-        tfEndereco.setBounds(475, 280, 150, 30);
-
-        jTabbedPane1.addTab("Dados Cadastrais", jPanel3);
-
-        jPanel1.add(jTabbedPane1);
-        jTabbedPane1.setBounds(0, 60, 700, 350);
+        jPanel1.add(tfNome);
+        tfNome.setBounds(250, 120, 200, 30);
 
         btVoltar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btVoltar.setForeground(new java.awt.Color(0, 190, 170));
@@ -356,7 +220,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btSalvar);
-        btSalvar.setBounds(590, 430, 100, 50);
+        btSalvar.setBounds(590, 440, 100, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -400,29 +264,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         if(tfNome.getText().equals("") || tfLogin.getText().equals("") || tfSenha.getText().equals("") 
                 || tfEmail.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Preencha os campos de usuário!");
-        } else if(tfDataNasc.getText().equals("  /  /    ") 
-                || tfCPF.getText().equals("   .   .   -  ") || tfTelefone.getText().equals("(  )      -    ") 
-                || tfCidade.getText().equals("") || tfEstado.getText().equals("") || tfEstado.getText().equals("") 
-                || tfBairro.getText().equals("") || tfEndereco.getText().equals("")){
-        
-            JOptionPane.showMessageDialog(this, "Preencha todos os dados cadastrais!");
-        
-        }else { 
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
+        } else { 
             
         usuario.setNome(tfNome.getText().toUpperCase());
-        usuario.setLoginUsuario(tfLogin.getText().toUpperCase());
-        usuario.setSenhaUsuario(tfSenha.getText().toUpperCase());
-        usuario.setEmailUsuario(tfEmail.getText());
+        usuario.setLogin(tfLogin.getText().toUpperCase());
+        usuario.setSenha(tfSenha.getText().toUpperCase());
+        usuario.setEmail(tfEmail.getText());
         
-        usuario.setSexo(cbSexo.getSelectedItem().toString());
-        usuario.setDataNascimento(formataData(tfDataNasc.getText()));
-        usuario.setCpf(tfCPF.getText());
-        usuario.setTelefone(tfTelefone.getText());
-        usuario.setCidade(tfCidade.getText().toUpperCase());
-        usuario.setEstado(tfEstado.getText().toUpperCase());
-        usuario.setBairro(tfBairro.getText().toUpperCase());
-        usuario.setEndereco(tfEndereco.getText().toUpperCase());
         UsuarioDAO.salvar(usuario);
         btLimparActionPerformed(null);
         
@@ -474,34 +323,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField tfBairro;
-    private javax.swing.JFormattedTextField tfCPF;
-    private javax.swing.JTextField tfCidade;
-    private javax.swing.JFormattedTextField tfDataNasc;
     private javax.swing.JTextField tfEmail;
-    private javax.swing.JTextField tfEndereco;
-    private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfLogin;
     private javax.swing.JTextField tfNome;
     private javax.swing.JPasswordField tfSenha;
-    private javax.swing.JFormattedTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }

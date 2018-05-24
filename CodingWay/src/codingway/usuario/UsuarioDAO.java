@@ -32,7 +32,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
     
     public void salvar(Usuario usuario) {
         Object[] options = {"Sim", "Não"};
-        if (usuario.getId() == 0) {
+        if (usuario.getIdUsuario() == 0) {
             if (adicionar(usuario)) {
                 JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
             }
@@ -61,7 +61,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
     
     public boolean excluir(Usuario usuario) {
         Object[] options = {"Sim", "Não"};
-        if (usuario.getId() != 0) {
+        if (usuario.getIdUsuario() != 0) {
             if (JOptionPane.showOptionDialog(null, "Deseja excluir o Usuário): " + usuario.getNome()
                     + "?", "CodingWay", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]) == JOptionPane.YES_OPTION) {
 
