@@ -2,6 +2,7 @@ package codingway.usuario;
 
 import codingway.pessoa.Pessoa;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class Usuario{
     private String senha;
     private String nome;
     private String email;
+    private Date dataCadastro;
 
     public int getIdUsuario() {
         return IdUsuario;
@@ -63,6 +65,15 @@ public class Usuario{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+    
     
     
 

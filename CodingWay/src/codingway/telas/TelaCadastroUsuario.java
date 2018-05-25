@@ -19,6 +19,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     Pessoa pessoa = new Pessoa() {};
     UsuarioDAO UsuarioDAO;
     
+    Date data = new Date();
+    
     
     public TelaCadastroUsuario() {
         initComponents();
@@ -270,6 +272,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         usuario.setLogin(tfLogin.getText());
         usuario.setSenha(tfSenha.getText());
         usuario.setEmail(tfEmail.getText());
+        usuario.setDataCadastro(data);
         
         UsuarioDAO.salvar(usuario);
         btLimparActionPerformed(null);

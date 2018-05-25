@@ -59,9 +59,6 @@ public class AutenticarUsuario extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfSenhaFocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfSenhaFocusLost(evt);
-            }
         });
         jPanel1.add(tfSenha);
         tfSenha.setBounds(75, 210, 150, 30);
@@ -100,24 +97,18 @@ public class AutenticarUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else {
             usuario = UsuarioDAO.autenticarUsuario(tfLogin.getText(), tfSenha.getText());
-            
-            if(usuario != null){
+
+        if (usuario != null) {
             TelaCadastroUsuario menu = new TelaCadastroUsuario();
             menu.setVisible(true);
             dispose();
-            }
-                    
-        }  
-        
+        }
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
         tfSenha.setText("");
     }//GEN-LAST:event_tfSenhaFocusGained
-
-    private void tfSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusLost
-        tfSenha.setText("senha");
-    }//GEN-LAST:event_tfSenhaFocusLost
 
     /**
      * @param args the command line arguments
