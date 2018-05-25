@@ -22,7 +22,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     Date data = new Date();
     
     
-    public TelaCadastroUsuario() {
+    public TelaCadastroUsuario(){
         initComponents();
         btExcluir.setEnabled(false);
         UsuarioDAO = new UsuarioDAO();
@@ -336,4 +336,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField tfNome;
     private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
+
+    private void setModal(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
