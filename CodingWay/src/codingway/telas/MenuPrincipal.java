@@ -24,6 +24,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jUser.setText(usuario.getLogin());
     }
 
+    MenuPrincipal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -199,7 +203,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void subCadastroAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subCadastroAlunoActionPerformed
-        
+        TelaCadastroUsuario telaUser = new TelaCadastroUsuario();
+        telaUser.setVisible(true);
+        dispose();
     }//GEN-LAST:event_subCadastroAlunoActionPerformed
 
     private void subCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subCadastroUsuarioActionPerformed

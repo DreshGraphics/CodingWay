@@ -133,7 +133,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(JOptionPane.showConfirmDialog(this, "Deseja realmente fechar o sistema?", "Fechar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-           JOptionPane.showMessageDialog(this, "Todos os Direitos Reservados \nCoding Way");
+           JOptionPane.showMessageDialog(this, "Todos os Direitos Reservados \n \nCoding Way");
            System.exit(0); 
         }
         
