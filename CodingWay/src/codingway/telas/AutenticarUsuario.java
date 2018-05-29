@@ -31,6 +31,8 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jlSenha = new javax.swing.JLabel();
         jlLogin = new javax.swing.JLabel();
         tfLogin = new javax.swing.JTextField();
@@ -80,6 +82,14 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_User_Male_15px.png"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(50, 190, 15, 15);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Password_15px.png"))); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(50, 290, 15, 15);
+
         jlSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlSenha.setForeground(new java.awt.Color(255, 255, 255));
         jlSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -100,7 +110,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         tfLogin.setBorder(null);
         tfLogin.setOpaque(false);
         jPanel1.add(tfLogin);
-        tfLogin.setBounds(55, 180, 190, 30);
+        tfLogin.setBounds(70, 180, 180, 30);
 
         tfSenha.setBackground(new java.awt.Color(28, 17, 65));
         tfSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,7 +123,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(tfSenha);
-        tfSenha.setBounds(55, 280, 190, 30);
+        tfSenha.setBounds(70, 280, 180, 30);
 
         btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -249,6 +259,8 @@ public class AutenticarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
