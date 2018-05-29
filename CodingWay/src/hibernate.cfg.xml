@@ -15,7 +15,7 @@
         <property name="use_sql_coments">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="codingway.usuario.Usuario"/>
-        <mapping class="codingway.aluno.Alunos"/>        
+        <mapping class="codingway.aluno.Aluno"/>        
         <mapping class="codingway.livro.Livros"/>
     </session-factory>
 </hibernate-configuration>
