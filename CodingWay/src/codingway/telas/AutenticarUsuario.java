@@ -1,6 +1,7 @@
 package codingway.telas;
 
 import codingway.usuario.*;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -15,59 +16,111 @@ public class AutenticarUsuario extends javax.swing.JFrame {
     
     public AutenticarUsuario() {
         initComponents();
+        tfLogin.setBackground(new Color(1.0f,1.0f,1.0f,0f));
+        tfSenha.setBackground(new Color(1.0f,1.0f,1.0f,0f));
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        jlSenha = new javax.swing.JLabel();
+        jlLogin = new javax.swing.JLabel();
         tfLogin = new javax.swing.JTextField();
         tfSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jsLogin = new javax.swing.JSeparator();
+        jsSenha = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        jLabel2.setBackground(new java.awt.Color(28, 17, 65));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(28, 17, 65));
+        jLabel2.setText("Biblioteca");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(50, 30, 300, 48);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(28, 17, 65));
+        jLabel4.setText("system");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(164, 65, 50, 20);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(28, 17, 65));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Coding Way");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(150, 425, 100, 30);
+
+        jSeparator1.setForeground(new java.awt.Color(28, 17, 65));
+        jPanel2.add(jSeparator1);
+        jSeparator1.setBounds(0, 440, 100, 10);
+
+        jSeparator2.setForeground(new java.awt.Color(28, 17, 65));
+        jPanel2.add(jSeparator2);
+        jSeparator2.setBounds(300, 440, 100, 2);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SENHA");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 160, 100, 30);
+        jlSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jlSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jlSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlSenha.setText("Senha");
+        jPanel1.add(jlSenha);
+        jlSenha.setBounds(50, 250, 100, 30);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LOGIN");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(100, 70, 100, 30);
+        jlLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jlLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jlLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlLogin.setText("Login");
+        jPanel1.add(jlLogin);
+        jlLogin.setBounds(50, 150, 100, 30);
 
-        tfLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfLogin.setBackground(new java.awt.Color(28, 17, 65));
+        tfLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfLogin.setForeground(new java.awt.Color(255, 255, 255));
+        tfLogin.setBorder(null);
+        tfLogin.setOpaque(false);
         jPanel1.add(tfLogin);
-        tfLogin.setBounds(75, 120, 150, 30);
+        tfLogin.setBounds(55, 180, 190, 30);
 
-        tfSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfSenha.setText("senha");
-        tfSenha.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfSenhaFocusGained(evt);
-            }
-        });
+        tfSenha.setBackground(new java.awt.Color(28, 17, 65));
+        tfSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfSenha.setForeground(new java.awt.Color(255, 255, 255));
+        tfSenha.setBorder(null);
+        tfSenha.setOpaque(false);
         tfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfSenhaKeyPressed(evt);
             }
         });
         jPanel1.add(tfSenha);
-        tfSenha.setBounds(75, 210, 150, 30);
+        tfSenha.setBounds(55, 280, 190, 30);
 
         btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Enter_24px_1.png"))); // NOI18N
         btnEntrar.setText("ENTRAR");
+        btnEntrar.setContentAreaFilled(false);
         btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,9 +128,9 @@ public class AutenticarUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnEntrar);
-        btnEntrar.setBounds(100, 300, 100, 30);
+        btnEntrar.setBounds(100, 400, 120, 40);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Delete_30px_1.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_26px.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,19 +141,36 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(265, 0, 35, 35);
 
+        jsLogin.setForeground(new java.awt.Color(28, 17, 65));
+        jsLogin.setOpaque(true);
+        jPanel1.add(jsLogin);
+        jsLogin.setBounds(50, 210, 200, 2);
+
+        jsSenha.setForeground(new java.awt.Color(28, 17, 65));
+        jsSenha.setOpaque(true);
+        jPanel1.add(jsSenha);
+        jsSenha.setBounds(50, 310, 200, 2);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/fundologin.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 300, 500);
+
+        jPanel2.add(jPanel1);
+        jPanel1.setBounds(400, 0, 300, 500);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/BackLogin.png"))); // NOI18N
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(0, 0, 700, 500);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -120,10 +190,6 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-
-    private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
-        tfSenha.setText("");
-    }//GEN-LAST:event_tfSenhaFocusGained
 
     private void tfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSenhaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -180,7 +246,17 @@ public class AutenticarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel jlLogin;
+    private javax.swing.JLabel jlSenha;
+    private javax.swing.JSeparator jsLogin;
+    private javax.swing.JSeparator jsSenha;
     private javax.swing.JTextField tfLogin;
     private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
