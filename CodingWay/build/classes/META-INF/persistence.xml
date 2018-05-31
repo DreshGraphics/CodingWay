@@ -3,6 +3,7 @@
   <persistence-unit name="systembiblioteca?zeroDateTimeBehavior=convertToNullPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>codingway.telas.Livros</class>
+    <class>codingway.telas.Aluno</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/systembiblioteca?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
