@@ -12,10 +12,10 @@ import javax.swing.table.AbstractTableModel;
  */
 public class LivroTableModel extends AbstractTableModel {
 
-    private List<Livro> livros = new ArrayList<>();
+    private List<Livros> livros = new ArrayList<>();
     private String[] colunas = {"ID", "Livro", "Autor"};
 
-    public LivroTableModel(List<Livro> aluno) {
+    public LivroTableModel(List<Livros> livros) {
         this.livros = livros;
     }
 
@@ -31,14 +31,14 @@ public class LivroTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Livro aluno = livros.get(rowIndex);
+        Livros livro = livros.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return aluno.getIdLivro();
+                return livro.getIdLivro();
             case 1:
-                return aluno.getNomeLivro();
+                return livro.getNomeLivro();
             case 2:
-                return aluno.getAutorLivro();
+                return livro.getAutorLivro();
         }
         return null;
     }
