@@ -139,7 +139,7 @@ public class TelaConsultarAlunoR extends javax.swing.JFrame {
         }else{
             aluno = alunoDAO.pesquisarAlunoId
         ((int) tbAlunoReserva.getValueAt(linha, 0));
-            TelaCadastroAluno telaAluno = new TelaCadastroAluno ();
+            TelaCadastroReserva telaAluno = new TelaCadastroReserva();
             telaAluno.aluno = aluno;
             telaAluno.preencherAluno();
             telaAluno.setVisible(true);

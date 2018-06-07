@@ -7,10 +7,16 @@ import codingway.aluno.*;
  */
 public class TelaCadastroReserva extends javax.swing.JFrame {
 
+    Aluno aluno = new Aluno();
+    AlunoDAO alunoDAO = new AlunoDAO();
+    
     public TelaCadastroReserva() {
         initComponents();
     }
     
+    public void preencherAluno(){
+        tfAluno.setText(aluno.getAluno());
+    }
     
 
     @SuppressWarnings("unchecked")

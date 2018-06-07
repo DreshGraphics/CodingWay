@@ -58,7 +58,7 @@ public class AlunoDAO{
 
     public Aluno pesquisarAlunoId(int id) {
         iniciarSessao();
-        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("idAluno", id)).uniqueResult();
+        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("Matricula", id)).uniqueResult();
         sessao.close();
         return aluno;
     }
