@@ -1,7 +1,6 @@
 package codingway.telas;
 
-import codingway.usuario.*;
-import codingway.pessoa.*;
+import codingway.livro.*;
 import codingway.util.Util;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -13,35 +12,28 @@ import javax.swing.JOptionPane;
  *
  * @author Dresh
  */
-public class TelaCadastroUsuario extends javax.swing.JFrame {
+public class TelaCadastroLivro extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
-    Pessoa pessoa = new Pessoa() {};
-    UsuarioDAO UsuarioDAO;
+    Livro livro = new Livro();
+    LivroDAO LivroDAO;
     
     Date data = new Date();
     
     
-    public TelaCadastroUsuario(){
+    public TelaCadastroLivro(){
         initComponents();
         btExcluir.setEnabled(false);
-        UsuarioDAO = new UsuarioDAO();
+        LivroDAO = new LivroDAO();
     }
     
     public void atualizarDados(){
-        tfNome.setText(usuario.getNome());
-        tfLogin.setText(usuario.getLogin());
-        tfSenha.setText("*****");
-        tfEmail.setText(usuario.getEmail());
-        
+        tfNomeLivro.setText(livro.getNomeLivro());
+        tfNomeAutor.setText(livro.getNomeAutor());     
     }
     
     private void limparCampos() {
-        tfNome.setText("");
-        tfLogin.setText("");
-        tfSenha.setText("");
-        tfEmail.setText("");
-        
+        tfNomeLivro.setText("");
+        tfNomeAutor.setText("");   
     }
     
     private Date formataData(String data) {
@@ -69,18 +61,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        tfLogin = new javax.swing.JTextField();
-        tfSenha = new javax.swing.JPasswordField();
-        tfEmail = new javax.swing.JTextField();
-        tfNome = new javax.swing.JTextField();
+        tfNomeLivro = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         btPesquisar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
+        tfNomeAutor = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,59 +77,20 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Usuário");
+        jLabel1.setText("Cadastro de Livro");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(200, 10, 300, 50);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nome:");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Nome do Livro:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(250, 90, 200, 30);
+        jLabel3.setBounds(50, 150, 100, 30);
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Login:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(250, 170, 200, 30);
-
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Senha:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(250, 250, 200, 30);
-
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Email:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(250, 330, 200, 30);
-
-        tfLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(tfLogin);
-        tfLogin.setBounds(250, 200, 200, 30);
-
-        tfSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfSenha.setText("password");
-        tfSenha.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfSenhaFocusGained(evt);
-            }
-        });
-        jPanel1.add(tfSenha);
-        tfSenha.setBounds(250, 280, 200, 30);
-
-        tfEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(tfEmail);
-        tfEmail.setBounds(250, 360, 200, 30);
-
-        tfNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(tfNome);
-        tfNome.setBounds(250, 120, 200, 30);
+        tfNomeLivro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(tfNomeLivro);
+        tfNomeLivro.setBounds(180, 150, 470, 30);
 
         btVoltar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btVoltar.setForeground(new java.awt.Color(0, 190, 170));
@@ -223,6 +172,17 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jPanel1.add(btSalvar);
         btSalvar.setBounds(590, 430, 100, 50);
 
+        tfNomeAutor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(tfNomeAutor);
+        tfNomeAutor.setBounds(180, 210, 470, 30);
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Nome do Autor:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(50, 210, 100, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -249,12 +209,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limparCampos();
         btExcluir.setEnabled(false);
-        usuario = new Usuario();
+        livro = new Livro();
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        //TelaPesquisarUsuario telaPesquisa = new TelaPesquisarUsuario();
-        //telaPesquisa.setVisible(true);
+        TelaConsultarLivro telaPesquisa = new TelaConsultarLivro();
+        telaPesquisa.setVisible(true);
         dispose();
     }//GEN-LAST:event_btPesquisarActionPerformed
 
@@ -263,26 +223,18 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if(tfNome.getText().equals("") || tfLogin.getText().equals("") || tfSenha.getText().equals("") 
-                || tfEmail.getText().equals("")){
+        if(tfNomeLivro.getText().equals("") || tfNomeAutor.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else { 
             
-        usuario.setNome(tfNome.getText().toUpperCase());
-        usuario.setLogin(tfLogin.getText());
-        usuario.setSenha(tfSenha.getText());
-        usuario.setEmail(tfEmail.getText());
-        usuario.setDataCadastro(data);
+        livro.setNomeLivro(tfNomeLivro.getText().toUpperCase());
+        livro.setNomeAutor(tfNomeAutor.getText().toUpperCase());
         
-        UsuarioDAO.salvar(usuario);
+        LivroDAO.salvarLivro(livro);
         btLimparActionPerformed(null);
         
         }
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
-        tfSenha.setText("");
-    }//GEN-LAST:event_tfSenhaFocusGained
 
     /**
      * @param args the command line arguments
@@ -301,20 +253,23 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroUsuario().setVisible(true);
+                new TelaCadastroLivro().setVisible(true);
             }
         });
     }
@@ -328,13 +283,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField tfEmail;
-    private javax.swing.JTextField tfLogin;
-    private javax.swing.JTextField tfNome;
-    private javax.swing.JPasswordField tfSenha;
+    private javax.swing.JTextField tfNomeAutor;
+    private javax.swing.JTextField tfNomeLivro;
     // End of variables declaration//GEN-END:variables
 
     private void setModal(boolean b) {

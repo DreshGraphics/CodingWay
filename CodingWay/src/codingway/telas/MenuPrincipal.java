@@ -203,8 +203,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void subCadastroAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subCadastroAlunoActionPerformed
-        TelaCadastroAlunos telaAluno = new TelaCadastroAlunos();
-        telaAluno.setVisible(true);
+
     }//GEN-LAST:event_subCadastroAlunoActionPerformed
 
     private void subCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subCadastroUsuarioActionPerformed

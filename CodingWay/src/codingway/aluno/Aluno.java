@@ -14,84 +14,43 @@ import javax.persistence.Id;
 public class Aluno{ 
 
     @Id
-    @GeneratedValue
-    private int IdAluno;
+    private int Matricula;
     
     @Column(length = 100, nullable = false)
-    private String nome;
-    private String curso;
-    private String semestre;
-    private String email;
+    private String Aluno;
+    private String Curso;
+    private String Email;
 
-    /**
-     * @return the IdAluno
-     */
-    public int getIdAluno() {
-        return IdAluno;
+    public int getMatricula() {
+        return Matricula;
     }
 
-    /**
-     * @param IdAluno the IdAluno to set
-     */
-    public void setIdAluno(int IdAluno) {
-        this.IdAluno = IdAluno;
+    public void setMatricula(int Matricula) {
+        this.Matricula = Matricula;
     }
 
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
+    public String getAluno() {
+        return Aluno;
     }
 
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setAluno(String Aluno) {
+        this.Aluno = Aluno;
     }
 
-    /**
-     * @return the curso
-     */
     public String getCurso() {
-        return curso;
+        return Curso;
     }
 
-    /**
-     * @param curso the curso to set
-     */
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setCurso(String Curso) {
+        this.Curso = Curso;
     }
 
-    /**
-     * @return the semestre
-     */
-    public String getSemestre() {
-        return semestre;
-    }
-
-    /**
-     * @param semestre the semestre to set
-     */
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
-    }
-
-    /**
-     * @return the email
-     */
     public String getEmail() {
-        return email;
+        return Email;
     }
 
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
-    
 
 }

@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codingway.livro;
 
-import java.io.Serializable;
+
+import codingway.aluno.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,17 +9,18 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Brenno
+ * @author Dresh
  */
 @Entity
-public class Livros implements Serializable {
+public class Livro{ 
+
     @Id
     @GeneratedValue
     private int idLivro;
     
-    @Column(length = 100, nullable = true)
+    @Column(length = 100, nullable = false)
     private String nomeLivro;
-    private String autorLivro;
+    private String nomeAutor;
 
     public int getIdLivro() {
         return idLivro;
@@ -41,11 +38,15 @@ public class Livros implements Serializable {
         this.nomeLivro = nomeLivro;
     }
 
-    public String getAutorLivro() {
-        return autorLivro;
+    public String getNomeAutor() {
+        return nomeAutor;
     }
 
-    public void setAutorLivro(String autorLivro) {
-        this.autorLivro = autorLivro;
+    public void setNomeAutor(String nomeAutor) {
+        this.nomeAutor = nomeAutor;
     }
+
+    
+    
+
 }

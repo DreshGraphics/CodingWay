@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package codingway.aluno;
+package codingway.livro;
 
+import codingway.livro.*;
 import javax.swing.JOptionPane;
 import org.hibernate.criterion.Restrictions;
 import codingway.util.HibernateUtil;
@@ -16,7 +17,7 @@ import org.hibernate.Transaction;
  *
  * @author Dresh
  */
-public class AlunoDAO{
+public class LivroDAO{
 
     Session sessao;
     Transaction transacao;
@@ -26,41 +27,41 @@ public class AlunoDAO{
         transacao = sessao.beginTransaction();
     }
 
-    public void salvarAluno(Aluno aluno) {
+    public void salvarLivro(Livro livro) {
             iniciarSessao();
-            sessao.save(aluno);
+            sessao.save(livro);
             transacao.commit();
             sessao.close();
             
-            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");    
+            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");    
     }
 
-    public void editarAluno(Aluno aluno) {
+    public void editarLivro(Livro livro) {
         iniciarSessao();
-        sessao.update(aluno);
+        sessao.update(livro);
         transacao.commit();
         sessao.close();
     }
 
-    public void excluirAluno(Aluno aluno) {
+    public void excluirLivro(Livro livro) {
         iniciarSessao();
-        sessao.delete(aluno);
+        sessao.delete(livro);
         transacao.commit();
         sessao.close();
     }
 
-    public List<Aluno> listarAluno() {
+    public List<Livro> listarLivro() {
         iniciarSessao();
-        List<Aluno> alunos = sessao.createCriteria(Aluno.class).list();
+        List<Livro> livros = sessao.createCriteria(Livro.class).list();
         sessao.close();
-        return alunos;
+        return livros;
     }
 
-    public Aluno pesquisarAlunoId(int id) {
+    public Livro pesquisarLivroId(int id) {
         iniciarSessao();
-        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("idAluno", id)).uniqueResult();
+        Livro livro = (Livro) sessao.createCriteria(Livro.class).add(Restrictions.eq("idLivro", id)).uniqueResult();
         sessao.close();
-        return aluno;
+        return livro;
     }
     
 }
