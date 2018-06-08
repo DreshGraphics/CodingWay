@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codingway.aluno;
 
 import javax.swing.JOptionPane;
@@ -17,7 +12,7 @@ import org.hibernate.Transaction;
  *
  * @author Dresh
  */
-public class AlunoDAO{
+public class AlunoDAO extends HibernateUtil{
 
     Session sessao;
     Transaction transacao;
@@ -31,9 +26,7 @@ public class AlunoDAO{
             iniciarSessao();
             sessao.save(aluno);
             transacao.commit();
-            sessao.close();
-            
-            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");    
+            sessao.close();   
     }
 
     public void editarAluno(Aluno aluno) {

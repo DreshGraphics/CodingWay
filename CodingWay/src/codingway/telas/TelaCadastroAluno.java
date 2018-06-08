@@ -260,9 +260,14 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         aluno.setCurso(String.valueOf(jbCurso.getSelectedItem()));
         aluno.setEmail(tfEmail.getText());
         
+        if(aluno.getMatricula() == 0){
+            AlunoDAO.salvarAluno(aluno);
+            JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso");
+        } else {
+            AlunoDAO.editarAluno(aluno);
+            JOptionPane.showMessageDialog(this, "Aluno editado com sucesso");
+        }
         
-        AlunoDAO.salvarAluno(aluno);
-        btLimparActionPerformed(null);
         
         }
     }//GEN-LAST:event_btSalvarActionPerformed

@@ -88,7 +88,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(50, 150, 100, 30);
 
-        tfNomeLivro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfNomeLivro.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNomeLivro);
         tfNomeLivro.setBounds(180, 150, 470, 30);
 
@@ -172,7 +172,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         jPanel1.add(btSalvar);
         btSalvar.setBounds(590, 430, 100, 50);
 
-        tfNomeAutor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfNomeAutor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNomeAutor);
         tfNomeAutor.setBounds(180, 210, 470, 30);
 
@@ -230,9 +230,14 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         livro.setNomeLivro(tfNomeLivro.getText().toUpperCase());
         livro.setNomeAutor(tfNomeAutor.getText().toUpperCase());
         
-        LivroDAO.salvarLivro(livro);
-        btLimparActionPerformed(null);
-        
+        if(livro.getIdLivro() == 0){     
+            LivroDAO.salvarLivro(livro);
+            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+        } else {
+            LivroDAO.editarLivro(livro);
+            JOptionPane.showMessageDialog(null, "Livro editado com sucesso!");
+        }
+            limparCampos();
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 

@@ -31,9 +31,7 @@ public class LivroDAO{
             iniciarSessao();
             sessao.save(livro);
             transacao.commit();
-            sessao.close();
-            
-            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");    
+            sessao.close();    
     }
 
     public void editarLivro(Livro livro) {

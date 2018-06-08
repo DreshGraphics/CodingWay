@@ -40,8 +40,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         tfNome.setText("");
         tfLogin.setText("");
         tfSenha.setText("");
-        tfEmail.setText("");
-        
+        tfEmail.setText("");   
     }
     
     private Date formataData(String data) {
@@ -268,14 +267,17 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else { 
             
-        usuario.setNome(tfNome.getText().toUpperCase());
-        usuario.setLogin(tfLogin.getText());
-        usuario.setSenha(tfSenha.getText());
-        usuario.setEmail(tfEmail.getText());
-        usuario.setDataCadastro(data);
+            usuario.setNome(tfNome.getText().toUpperCase());
+            usuario.setLogin(tfLogin.getText());
+            usuario.setSenha(tfSenha.getText());
+            usuario.setEmail(tfEmail.getText());
+            usuario.setDataCadastro(data);
+            
+        if(usuario.getIdUsuario() == 0){
+            UsuarioDAO.salvar(usuario);
+        }
         
-        UsuarioDAO.salvar(usuario);
-        btLimparActionPerformed(null);
+        limparCampos();
         
         }
     }//GEN-LAST:event_btSalvarActionPerformed
