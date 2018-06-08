@@ -14,15 +14,26 @@ import javax.persistence.Id;
 public class Aluno{ 
 
     @Id
-    private int Matricula;
+    @GeneratedValue
+    private int idAluno;
     
     @Column(length = 100, nullable = false)
     private String Aluno;
     private String Curso;
     private String Email;
-
-    public int getMatricula() {
+    private int Matricula;
+    
+    
+   public int getMatricula() {
         return Matricula;
+    }
+
+    public int getIdAluno() {
+        return idAluno;
+    }
+
+    public void setIdAluno(int idAluno) {
+        this.idAluno = idAluno;
     }
 
     public void setMatricula(int Matricula) {
