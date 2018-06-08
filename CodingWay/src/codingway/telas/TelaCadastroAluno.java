@@ -18,7 +18,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     
     Date data = new Date();
     
-    
+   
     public TelaCadastroAluno(){
         initComponents();
         btExcluir.setEnabled(false);
@@ -26,6 +26,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     }
 
     public void atualizarDados(){
+        tfMatricula.setText(String.valueOf(aluno.getMatricula()));
         tfNome.setText(aluno.getAluno());
         jbCurso.setSelectedItem(aluno.getCurso());
         tfEmail.setText(aluno.getEmail());
@@ -253,8 +254,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
 
         if(tfMatricula.getText().equals("") || tfNome.getText().equals("") || tfEmail.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
-        } else { 
-            
+        } else {         
         aluno.setMatricula(Integer.parseInt(tfMatricula.getText()));
         aluno.setAluno(tfNome.getText().toUpperCase());
         aluno.setCurso(String.valueOf(jbCurso.getSelectedItem()));
