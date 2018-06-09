@@ -57,6 +57,11 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Livro");
 
+        tfAluno.setEnabled(false);
+
+        tfLivro.setEditable(false);
+        tfLivro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         jButton1.setText("PESQUISAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +159,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Selecione primeiro o aluno!");
         } else {
             TelaConsultarLivroR telaLivro = new TelaConsultarLivroR();
+            telaLivro.aluno = aluno;
             telaLivro.setVisible(true);
             dispose();
         }

@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import org.hibernate.criterion.Restrictions;
 import codingway.util.HibernateUtil;
 import java.util.List;
-import javax.persistence.Query;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
  *
  * @author Dresh
  */
-public class AlunoDAO extends HibernateUtil{
+public class AlunoDAO extends HibernateUtil {
 
     Session sessao;
     Transaction transacao;
@@ -23,10 +23,10 @@ public class AlunoDAO extends HibernateUtil{
     }
 
     public void salvarAluno(Aluno aluno) {
-            iniciarSessao();
-            sessao.save(aluno);
-            transacao.commit();
-            sessao.close();   
+        iniciarSessao();
+        sessao.save(aluno);
+        transacao.commit();
+        sessao.close();
     }
 
     public void editarAluno(Aluno aluno) {
@@ -56,5 +56,19 @@ public class AlunoDAO extends HibernateUtil{
         sessao.close();
         return aluno;
     }
-    
+
+    public Aluno pesquisarEmail(String email) {
+        iniciarSessao();
+        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("Email", email)).uniqueResult();
+        sessao.close();
+        return aluno;
+    }
+
+    public int teste() {
+        iniciarSessao();
+        String sql = "insert into aluno(Aluno, Email, Curso, Matricula) values ('Joao', 'teste@gmail.com', 'Administração', 123456)";
+        Query query = sessao.createQuery(sql);
+        int teste = query.executeUpdate();
+        return teste;
+    }
 }

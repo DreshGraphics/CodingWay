@@ -20,6 +20,8 @@ public class Aluno{
     @Column(length = 100, nullable = false)
     private String Aluno;
     private String Curso;
+    
+    @Column(unique = true)
     private String Email;
     private int Matricula;
     

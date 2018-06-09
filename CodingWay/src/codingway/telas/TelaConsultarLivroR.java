@@ -129,6 +129,7 @@ public class TelaConsultarLivroR extends javax.swing.JFrame {
         ((int) tbLivroReserva.getValueAt(linha, 0));
             TelaCadastroReserva telaLivro = new TelaCadastroReserva();
             telaLivro.livro = livro;
+            telaLivro.aluno = aluno;
             telaLivro.preencherLivro();
             telaLivro.setVisible(true);
             dispose();

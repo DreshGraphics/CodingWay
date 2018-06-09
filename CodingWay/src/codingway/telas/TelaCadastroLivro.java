@@ -79,7 +79,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de Livro");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(200, 10, 300, 50);
+        jLabel1.setBounds(200, 20, 300, 50);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

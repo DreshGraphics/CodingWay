@@ -252,6 +252,10 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
+        if(AlunoDAO.pesquisarEmail(tfEmail.getText()) == null || 
+                AlunoDAO.pesquisarEmail(tfEmail.getText()).getEmail().equals(aluno.getEmail())){
+            
+                
         if(tfMatricula.getText().equals("") || tfNome.getText().equals("") || tfEmail.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else {         
@@ -271,6 +275,10 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         }
         
         
+        }
+        
+        } else {
+            JOptionPane.showMessageDialog(this, "O email já existe");
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
