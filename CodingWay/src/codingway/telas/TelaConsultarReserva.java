@@ -1,26 +1,26 @@
 package codingway.telas;
 
-import codingway.aluno.*;
+import codingway.reserva.*;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Dresh
  */
-public class TelaConsultarAluno extends javax.swing.JFrame {
+public class TelaConsultarReserva extends javax.swing.JFrame {
 
-    Aluno aluno = new Aluno();
-    AlunoDAO alunoDAO = new AlunoDAO();
+    Reserva reserva = new Reserva();
+    ReservaDAO reservaDAO = new ReservaDAO();
     
-    public TelaConsultarAluno() {
+    public TelaConsultarReserva() {
         initComponents();
         atualizarTabela();
     }
     
     public void atualizarTabela(){
-        AlunoTableModel modelo = new 
-        AlunoTableModel(alunoDAO.listarAluno());
-        tbAluno.setModel(modelo);
+        ReservaTableModel modelo = new 
+        ReservaTableModel(reservaDAO.listarReserva());
+        tbReserva.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -28,15 +28,16 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbAluno = new javax.swing.JTable();
+        tbReserva = new javax.swing.JTable();
         btVoltar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
-        btRetornar = new javax.swing.JButton();
+        tfBuscar = new javax.swing.JTextField();
+        btBuscar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tbAluno.setModel(new javax.swing.table.DefaultTableModel(
+        tbReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -47,19 +48,17 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbAluno);
+        tbReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbReservaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbReserva);
 
         btVoltar.setText("VOLTAR");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
-            }
-        });
-
-        btEditar.setText("EDITAR");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
             }
         });
 
@@ -70,10 +69,12 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
             }
         });
 
-        btRetornar.setText("RETORNAR");
-        btRetornar.addActionListener(new java.awt.event.ActionListener() {
+        btBuscar.setText("BUSCAR");
+
+        jButton1.setText("REINVIDICAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRetornarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -83,16 +84,18 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btVoltar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btRetornar)))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btBuscar)))
                 .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
@@ -103,9 +106,10 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
-                    .addComponent(btEditar)
                     .addComponent(btExcluir)
-                    .addComponent(btRetornar))
+                    .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBuscar)
+                    .addComponent(jButton1))
                 .addGap(21, 21, 21))
         );
 
@@ -114,56 +118,44 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        int linha = tbAluno.getSelectedRow();
+        int linha = tbReserva.getSelectedRow();
         if(linha == -1){
             JOptionPane.showMessageDialog(rootPane, "Selecione uma linha!");
         }else if(JOptionPane.showConfirmDialog
         (rootPane, "Deseja realmente excluir?", "Excluir"
         , JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            aluno = alunoDAO.pesquisarAlunoId
-        ((int) tbAluno.getValueAt(linha, 0));
-            alunoDAO.excluirAluno(aluno);
-            JOptionPane.showMessageDialog(rootPane, "Aluno excluído!");
+            reserva = reservaDAO.pesquisarReservaId
+        ((int) tbReserva.getValueAt(linha, 0));
+            reservaDAO.excluirReserva(reserva);
+            JOptionPane.showMessageDialog(rootPane, "Reserva excluída!");
             atualizarTabela();
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        TelaCadastroAluno telaAluno = new TelaCadastroAluno();
-        telaAluno.setVisible(true);
+        TelaCadastroReserva telaReserva = new TelaCadastroReserva();
+        telaReserva.setVisible(true);
         dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        int linha = tbAluno.getSelectedRow();
+    private void tbReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReservaMouseClicked
+
+    }//GEN-LAST:event_tbReservaMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int linha = tbReserva.getSelectedRow();
         if(linha == -1){
             JOptionPane.showMessageDialog(rootPane, "Selecione uma linha!");
-        }else{
-            aluno = alunoDAO.pesquisarAlunoId
-        ((int) tbAluno.getValueAt(linha, 0));
-            TelaCadastroAluno telaAluno = new TelaCadastroAluno();
-            telaAluno.aluno = aluno;
-            telaAluno.atualizarDados();
-            telaAluno.setVisible(true);
-            dispose();
+        }else if(JOptionPane.showConfirmDialog
+        (rootPane, "O livro realmente está disponivel?", "Reivindicar"
+        , JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            reserva = reservaDAO.pesquisarReservaId
+        ((int) tbReserva.getValueAt(linha, 0));
+            reservaDAO.reivindicarLivro();
+            JOptionPane.showMessageDialog(rootPane, "Aluno reivindicado!");
+            atualizarTabela();
         }
-    }//GEN-LAST:event_btEditarActionPerformed
-
-    private void btRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetornarActionPerformed
-        int linha = tbAluno.getSelectedRow();
-        if(linha == -1){
-            JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
-        }else{
-            aluno = alunoDAO.pesquisarAlunoId
-            ((int) tbAluno.getValueAt(linha, 0));
-
-            TelaCadastroReserva telaReserva = new TelaCadastroReserva();
-            telaReserva.aluno = aluno;
-            telaReserva.preencherAluno();
-            telaReserva.setVisible(true);
-            dispose();
-        }
-    }//GEN-LAST:event_btRetornarActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,14 +174,18 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConsultarAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConsultarAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConsultarAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConsultarAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConsultarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -198,17 +194,18 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaConsultarAluno().setVisible(true);
+                new TelaConsultarReserva().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btBuscar;
     private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btRetornar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbAluno;
+    private javax.swing.JTable tbReserva;
+    private javax.swing.JTextField tfBuscar;
     // End of variables declaration//GEN-END:variables
 }

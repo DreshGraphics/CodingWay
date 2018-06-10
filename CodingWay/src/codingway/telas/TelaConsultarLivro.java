@@ -120,7 +120,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         int linha = tbLivro.getSelectedRow();
         if(linha == -1){
-            JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma linha!");
         }else if(JOptionPane.showConfirmDialog
         (rootPane, "Deseja realmente excluir?", "Excluir"
         , JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
@@ -141,7 +141,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         int linha = tbLivro.getSelectedRow();
         if(linha == -1){
-            JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma linha!");
         }else{
             livro = livroDAO.pesquisarLivroId
         ((int) tbLivro.getValueAt(linha, 0));
