@@ -15,7 +15,6 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     Livro livro = new Livro();
     LivroDAO livroDAO = new LivroDAO();
     
-    public String recebeAluno = aluno.getAluno();
     
     public TelaCadastroReserva() {
         initComponents();
@@ -23,11 +22,10 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     
     public void preencherAluno(){
         tfAluno.setText(aluno.getAluno());
-        recebeAluno = aluno.getAluno();
     }
     
     public void preencherLivro(){
-        tfAluno.setText(recebeAluno);
+        preencherAluno();
         tfLivro.setText(livro.getNomeLivro());
         tfAutor.setText(livro.getNomeAutor());
     }
@@ -46,7 +44,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jData = new com.toedter.calendar.JDateChooser();
         tfAutor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,10 +55,12 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Livro");
 
+        tfAluno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAluno.setEnabled(false);
 
         tfLivro.setEditable(false);
-        tfLivro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tfLivro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfLivro.setEnabled(false);
 
         jButton1.setText("PESQUISAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,11 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jDateChooser1.setPreferredSize(new java.awt.Dimension(40, 20));
+        jData.setPreferredSize(new java.awt.Dimension(40, 20));
+
+        tfAutor.setEditable(false);
+        tfAutor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfAutor.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +122,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jData, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,18 +144,19 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(tfLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -214,7 +219,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

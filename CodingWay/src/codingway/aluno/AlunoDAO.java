@@ -64,11 +64,4 @@ public class AlunoDAO extends HibernateUtil {
         return aluno;
     }
 
-    public int teste() {
-        iniciarSessao();
-        String sql = "insert into aluno(Aluno, Email, Curso, Matricula) values ('Joao', 'teste@gmail.com', 'Administração', 123456)";
-        Query query = sessao.createQuery(sql);
-        int teste = query.executeUpdate();
-        return teste;
-    }
 }
