@@ -17,6 +17,7 @@
         <mapping class="codingway.usuario.Usuario"/>
         <mapping class="codingway.aluno.Aluno"/>        
         <mapping class="codingway.livro.Livro"/>
+        <mapping class="codingway.reserva.Reserva"/>
     </session-factory>
 </hibernate-configuration>
 

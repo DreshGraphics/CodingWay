@@ -1,5 +1,6 @@
 package codingway.telas;
 
+import codingway.aluno.*;
 import codingway.livro.*;
 import javax.swing.JOptionPane;
 
@@ -11,6 +12,9 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
 
     Livro livro = new Livro();
     LivroDAO livroDAO = new LivroDAO();
+    
+    Aluno aluno = new Aluno();
+    AlunoDAO alunoDAO = new AlunoDAO();
     
     public TelaConsultarLivro() {
         initComponents();
@@ -29,9 +33,10 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tbLivro = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
+        btEditar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        btRetornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,24 +53,31 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbLivro);
 
-        jButton1.setText("VOLTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btVoltar.setText("VOLTAR");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btVoltarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("EDITAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btEditar.setText("EDITAR");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btEditarActionPerformed(evt);
             }
         });
 
-        jButton5.setText("EXCLUIR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btExcluir.setText("EXCLUIR");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btExcluirActionPerformed(evt);
+            }
+        });
+
+        btRetornar.setText("RETORNAR");
+        btRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetornarActionPerformed(evt);
             }
         });
 
@@ -78,11 +90,13 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btVoltar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
+                        .addComponent(btExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btRetornar)))
                 .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
@@ -92,9 +106,10 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5))
+                    .addComponent(btVoltar)
+                    .addComponent(btEditar)
+                    .addComponent(btExcluir)
+                    .addComponent(btRetornar))
                 .addGap(21, 21, 21))
         );
 
@@ -102,7 +117,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         int linha = tbLivro.getSelectedRow();
         if(linha == -1){
             JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
@@ -115,15 +130,15 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Livro excluído!");
             atualizarTabela();
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btExcluirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         TelaCadastroLivro telaLivro = new TelaCadastroLivro();
         telaLivro.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         int linha = tbLivro.getSelectedRow();
         if(linha == -1){
             JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
@@ -136,7 +151,23 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
             telaLivro.setVisible(true);
             dispose();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetornarActionPerformed
+        int linha = tbLivro.getSelectedRow();
+        if(linha == -1){
+            JOptionPane.showMessageDialog(rootPane, "Selecione unma linha!");
+        }else{
+            livro = livroDAO.pesquisarLivroId
+            ((int) tbLivro.getValueAt(linha, 0));
+            TelaCadastroReserva telaLivro = new TelaCadastroReserva();
+            telaLivro.livro = livro;
+            telaLivro.aluno = aluno;
+            telaLivro.preencherLivro();
+            telaLivro.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btRetornarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,9 +212,10 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btRetornar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbLivro;
     // End of variables declaration//GEN-END:variables

@@ -62,8 +62,6 @@ public class Reserva{
 
     public void setDataPrevista(Date dataPrevista) {
         this.dataPrevista = dataPrevista;
-    }
- 
-    
+    } 
 
 }

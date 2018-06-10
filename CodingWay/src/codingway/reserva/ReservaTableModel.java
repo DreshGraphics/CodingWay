@@ -2,7 +2,11 @@ package codingway.reserva;
 
 
 import codingway.reserva.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -19,6 +23,11 @@ public class ReservaTableModel extends AbstractTableModel {
         this.reservas = reservass;
     }
 
+    private String converterDataString(Date date) {
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        return f.format(date);
+    }
+    
     @Override
     public int getRowCount() {
         return reservas.size();
@@ -42,7 +51,7 @@ public class ReservaTableModel extends AbstractTableModel {
             case 3:
                 return livro.getNomeAutor();
             case 4:
-                return livro.getDataPrevista();
+                return converterDataString(livro.getDataPrevista());
         }
         return null;
     }
