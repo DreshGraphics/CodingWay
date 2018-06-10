@@ -6,7 +6,7 @@ import codingway.reserva.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 import javax.swing.JOptionPane;
 /**
  *
@@ -22,6 +22,10 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     
     Reserva reserva = new Reserva();
     ReservaDAO reservaDAO = new ReservaDAO();
+    
+    Date data = new Date();
+    SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+    String dataFormatada  = formataData.format(data);
         
     public TelaCadastroReserva() {
         initComponents();
@@ -70,6 +74,11 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         return d;
     }
 
+    private String converterDataString(Date date) {
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        return f.format(date);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -334,22 +343,27 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        reserva.setNomeAluno(tfAluno.getText().toUpperCase());
-        reserva.setNomeAutor(tfAutor.getText().toUpperCase());
-        reserva.setNomeLivro(tfLivro.getText().toUpperCase());
-        reserva.setDataPrevista(formataData(tfData.getText()));
+        if(formataData(tfData.getText()).after(data)){
+            reserva.setNomeAluno(tfAluno.getText().toUpperCase());
+            reserva.setNomeAutor(tfAutor.getText().toUpperCase());
+            reserva.setNomeLivro(tfLivro.getText().toUpperCase());
+            reserva.setDataPrevista(formataData(tfData.getText()));
 
-        if(reserva.getIdReserva()== 0){
-            reservaDAO.salvarReserva(reserva);
-            JOptionPane.showMessageDialog(this, "Reserva cadastrado com sucesso");
-            limparCampos();
+            if(reserva.getIdReserva()== 0){
+                reservaDAO.salvarReserva(reserva);
+                JOptionPane.showMessageDialog(this, "Reserva cadastrado com sucesso");
+                limparCampos();
+            } else {
+                reservaDAO.editarReserva(reserva);
+                JOptionPane.showMessageDialog(this, "Reserva editado com sucesso");
+                limparCampos();
+            }
+
+            atualizarTabela();    
         } else {
-            reservaDAO.editarReserva(reserva);
-            JOptionPane.showMessageDialog(this, "Reserva editado com sucesso");
-            limparCampos();
+            JOptionPane.showMessageDialog(this, "Impossivel registrar reserva em um dia que já passou!");
         }
-        
-        atualizarTabela();
+ 
     }//GEN-LAST:event_btSalvarActionPerformed
 
    

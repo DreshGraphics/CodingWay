@@ -21,7 +21,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     
     Date data = new Date();
     
-    
     public TelaCadastroUsuario(){
         initComponents();
         btExcluir.setEnabled(false);
@@ -56,6 +55,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         }
         return d;
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
