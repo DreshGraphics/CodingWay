@@ -24,6 +24,7 @@ public class Reserva{
     private String nomeAutor;
     private Date dataPrevista;
     private String email;
+    private String status;
 
     public int getIdReserva() {
         return idReserva;
@@ -72,7 +73,12 @@ public class Reserva{
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

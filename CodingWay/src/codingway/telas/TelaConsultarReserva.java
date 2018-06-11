@@ -4,9 +4,17 @@ import codingway.reserva.*;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +26,12 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     Reserva reserva = new Reserva();
     ReservaDAO reservaDAO = new ReservaDAO();
     SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+    
+    Date date = new Date();
+    
+    GregorianCalendar vencimento = new GregorianCalendar(); 
+	
+                 
     
     public TelaConsultarReserva() {
         initComponents();
@@ -45,6 +59,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         ReservaTableModel(reservaDAO.listarBuscaData(data));
         tbReserva.setModel(modelo);
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -206,12 +222,57 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         }else if(JOptionPane.showConfirmDialog
         (rootPane, "O livro realmente está disponivel?", "Reivindicar"
         , JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            reserva = reservaDAO.pesquisarReservaId
-        ((int) tbReserva.getValueAt(linha, 0));
-            reservaDAO.reivindicarLivro();
-            JOptionPane.showMessageDialog(rootPane, "Aluno reivindicado!");
-            atualizarTabela();
+
+            try{    
+            String host ="smtp.gmail.com" ;
+            String user = "oslibaryfvs@gmail.com";
+            String pass = "codingway2018";
+            String to = (String) tbReserva.getValueAt(linha, 2);
+            String from = "oslibaryfvs@gmail.com";
+            String subject = "OSLibrary FVS";
+            String messageText = "A biblioteca da FVS informa que o seu livro " +(String) tbReserva.getValueAt(linha, 3)+ " encontra-se disponível \nVocê tem 24 horas para pegar o livro, caso contrário perderá sua vez! \nAnteciosamente Biblioteca da FVS";
+            boolean sessionDebug = false;
+ 
+            Properties props = System.getProperties();
+ 
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.required", "true");
+ 
+            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getDefaultInstance(props, null);
+            mailSession.setDebug(sessionDebug);
+            Message msg = new MimeMessage(mailSession);
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] address = {new InternetAddress(to)};
+            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setSubject(subject); msg.setSentDate(new Date());
+            msg.setText(messageText);
+ 
+           Transport transport=mailSession.getTransport("smtp");
+           transport.connect(host, user, pass);
+           transport.sendMessage(msg, msg.getAllRecipients());
+           transport.close();
+           JOptionPane.showMessageDialog(this, "Email enviado para o aluno " +(String) tbReserva.getValueAt(linha, 1)+ " com sucesso !");
+           
+           reserva = reservaDAO.pesquisarReservaId((int) tbReserva.getValueAt(linha, 0));
+           reserva.setStatus("EXPIRADO");
+           reservaDAO.editarReserva(reserva);
+           atualizarTabela();
+           
+           /*vencimento.setTime(new Date());
+           int inteiro = 1; 
+           vencimento.add(Calendar.DAY_OF_MONTH, inteiro);  		
+           System.out.print(vencimento.getTime());*/
+           
+        } catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, ex);
         }
+            
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed

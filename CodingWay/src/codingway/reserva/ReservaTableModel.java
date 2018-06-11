@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class ReservaTableModel extends AbstractTableModel {
 
     private List<Reserva> reservas = new ArrayList<>();
-    private String[] colunas = {"ID", "Aluno", "Email", "Livro", "Autor", "Data Prevista"};
+    private String[] colunas = {"ID", "Aluno", "Email", "Livro", "Autor", "Data Prevista", "Status"};
 
     public ReservaTableModel(List<Reserva> reservass) {
         this.reservas = reservass;
@@ -54,6 +54,8 @@ public class ReservaTableModel extends AbstractTableModel {
                 return livro.getNomeAutor();
             case 5:
                 return converterDataString(livro.getDataPrevista());
+            case 6:
+                return livro.getStatus();
         }
         return null;
     }
@@ -72,6 +74,8 @@ public class ReservaTableModel extends AbstractTableModel {
                 return colunas[4];
             case 5:
                 return colunas[5];
+            case 6:
+                return colunas[6];
         }
         return null;
     }

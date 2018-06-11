@@ -7,6 +7,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 /**
  *
@@ -328,7 +333,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        TelaConsultarAluno telaPesquisa = new TelaConsultarAluno();
+        TelaConsultarReserva telaPesquisa = new TelaConsultarReserva();
         telaPesquisa.setVisible(true);
         dispose();
     }//GEN-LAST:event_btPesquisarActionPerformed
@@ -344,10 +349,50 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
             reserva.setNomeLivro(tfLivro.getText().toUpperCase());
             reserva.setEmail(tfEmail.getText());
             reserva.setDataPrevista(formataData(tfData.getText()));
+            reserva.setStatus("ESPERA");
 
             if(reserva.getIdReserva()== 0){
                 reservaDAO.salvarReserva(reserva);
                 JOptionPane.showMessageDialog(this, "Reserva cadastrado com sucesso");
+                
+                try{    
+            String host ="smtp.gmail.com" ;
+            String user = "oslibaryfvs@gmail.com";
+            String pass = "codingway2018";
+            String to = tfEmail.getText();
+            String from = "oslibaryfvs@gmail.com";
+            String subject = "OSLibrary FVS";
+            String messageText = "A biblioteca da FVS informa que o seu livro " +tfLivro.getText()+ " foi reservado \nEstá previsto para estar disponivel no dia "+tfData.getText()+ "\nAnteciosamente Biblioteca da FVS";
+            boolean sessionDebug = false;
+ 
+            Properties props = System.getProperties();
+ 
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.required", "true");
+ 
+            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getDefaultInstance(props, null);
+            mailSession.setDebug(sessionDebug);
+            Message msg = new MimeMessage(mailSession);
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] address = {new InternetAddress(to)};
+            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setSubject(subject); msg.setSentDate(new Date());
+            msg.setText(messageText);
+ 
+           Transport transport=mailSession.getTransport("smtp");
+           transport.connect(host, user, pass);
+           transport.sendMessage(msg, msg.getAllRecipients());
+           transport.close();
+           JOptionPane.showMessageDialog(this, "Email enviado para o aluno " +tfEmail.getText()+ " com sucesso !");
+        }catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+                
                 limparCampos();
             } else {
                 reservaDAO.editarReserva(reserva);
