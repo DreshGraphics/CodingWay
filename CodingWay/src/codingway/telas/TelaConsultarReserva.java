@@ -80,8 +80,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btBuscar1 = new javax.swing.JButton();
         tfData = new javax.swing.JFormattedTextField();
-        btEspera = new javax.swing.JButton();
-        btExpirado = new javax.swing.JButton();
+        jbStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,17 +149,10 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        btEspera.setText("ESPERA");
-        btEspera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEsperaActionPerformed(evt);
-            }
-        });
-
-        btExpirado.setText("EXPIRADO");
-        btExpirado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btExpiradoActionPerformed(evt);
+        jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "EXPIRADO" }));
+        jbStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbStatusMouseClicked(evt);
             }
         });
 
@@ -180,10 +172,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                                 .addComponent(btExcluir)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btEspera)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btExpirado)))
+                            .addComponent(jbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfData)
@@ -203,8 +192,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscar1)
                     .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEspera)
-                    .addComponent(btExpirado))
+                    .addComponent(jbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
@@ -336,13 +324,13 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btBuscar1ActionPerformed
 
-    private void btEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEsperaActionPerformed
-        atualizarTabela();
-    }//GEN-LAST:event_btEsperaActionPerformed
-
-    private void btExpiradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExpiradoActionPerformed
-        atualizarTabelaStatus();
-    }//GEN-LAST:event_btExpiradoActionPerformed
+    private void jbStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbStatusMouseClicked
+        if(jbStatus.getSelectedItem().equals("ESPERA")){
+            atualizarTabela();
+        } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
+            atualizarTabelaStatus();
+        }
+    }//GEN-LAST:event_jbStatusMouseClicked
 
     /**
      * @param args the command line arguments
@@ -389,12 +377,11 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btBuscar1;
-    private javax.swing.JButton btEspera;
     private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btExpirado;
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jbStatus;
     private javax.swing.JTable tbReserva;
     private javax.swing.JTextField tfBuscar;
     private javax.swing.JFormattedTextField tfData;

@@ -36,11 +36,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btEspera" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btExpirado" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jbStatus" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -67,8 +63,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btBuscar1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfData" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btEspera" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btExpirado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -160,21 +155,21 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btEspera">
+    <Component class="javax.swing.JComboBox" name="jbStatus">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ESPERA"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="ESPERA"/>
+            <StringItem index="1" value="EXPIRADO"/>
+          </StringArray>
+        </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEsperaActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbStatusMouseClicked"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btExpirado">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="EXPIRADO"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExpiradoActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
