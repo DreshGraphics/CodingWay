@@ -9,7 +9,7 @@ import codingway.usuario.*;
 import codingway.util.GenericDAO;
 import javax.swing.JOptionPane;
 import org.hibernate.criterion.Restrictions;
-/*import codingway.aluno.Aluno;
+/*import codingway.aluno.Usuario;
 import codingway.paciente.Paciente;*/
 import codingway.util.HibernateUtil;
 
@@ -84,6 +84,13 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
         Usuario usuario = (Usuario) sessao.createCriteria
        (Usuario.class).add(Restrictions.eq
        ("idUsuario", id)).uniqueResult();
+        sessao.close();
+        return usuario;
+    }
+    
+    public Usuario pesquisarLogin(String login) {
+        iniciarSessao();
+        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("login", login)).uniqueResult();
         sessao.close();
         return usuario;
     }

@@ -224,6 +224,8 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        //if(LivroDAO.pesquisarAutor(tfNomeAutor.getText()) == null){
+        
         if(tfNomeLivro.getText().equals("") || tfNomeAutor.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         } else { 
@@ -238,7 +240,12 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             LivroDAO.editarLivro(livro);
             JOptionPane.showMessageDialog(null, "Livro editado com sucesso!");
         }
+        
         }
+        
+        /*} else {
+            JOptionPane.showMessageDialog(this, "Este livro já existe com essa autoria");
+        }*/
         
         limparCampos();
     }//GEN-LAST:event_btSalvarActionPerformed

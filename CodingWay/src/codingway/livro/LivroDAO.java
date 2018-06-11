@@ -62,4 +62,19 @@ public class LivroDAO{
         return livro;
     }
     
+    public Livro pesquisarLivro(String nome) {
+        iniciarSessao();
+        Livro livro = (Livro) sessao.createCriteria(Livro.class).add(Restrictions.eq("nomeLivro", nome)).uniqueResult();
+        sessao.close();
+        return livro;
+    }
+    
+    public Livro pesquisarAutor(String autor) {
+        iniciarSessao();
+        Livro livro = (Livro) sessao.createCriteria(Livro.class).add(Restrictions.eq("nomeAutor", autor)).uniqueResult();
+        sessao.close();
+        return livro;
+    }
+    
+    
 }

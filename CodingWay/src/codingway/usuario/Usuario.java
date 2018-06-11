@@ -18,11 +18,15 @@ public class Usuario{
     private int IdUsuario;
     
     @Column(length = 100, nullable = false)
-    private String login;
+
     private String senha;
     private String nome;
-    private String email;
     private Date dataCadastro;
+    private String email;
+    
+    @Column(unique = true)
+    private String login;
+
 
     public int getIdUsuario() {
         return IdUsuario;

@@ -263,6 +263,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        if(UsuarioDAO.pesquisarLogin(tfLogin.getText()) == null){
+        
         if(tfNome.getText().equals("") || tfLogin.getText().equals("") || tfSenha.getText().equals("") 
                 || tfEmail.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
@@ -281,6 +283,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         limparCampos();
         
         }
+        
+        } else {
+            JOptionPane.showMessageDialog(this, "O login já existe");
+        }
+        
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
