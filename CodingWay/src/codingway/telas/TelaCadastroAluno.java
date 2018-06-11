@@ -268,13 +268,12 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             AlunoDAO.salvarAluno(aluno);
             JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso");
             limparCampos();
-        } else {
+        }  else{
             AlunoDAO.editarAluno(aluno);
             JOptionPane.showMessageDialog(this, "Aluno editado com sucesso");
             limparCampos();
         }
-        
-        
+
         }
         
         } else {

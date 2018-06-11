@@ -23,6 +23,7 @@ public class Reserva{
     private String nomeLivro;
     private String nomeAutor;
     private Date dataPrevista;
+    private String email;
 
     public int getIdReserva() {
         return idReserva;
@@ -63,5 +64,15 @@ public class Reserva{
     public void setDataPrevista(Date dataPrevista) {
         this.dataPrevista = dataPrevista;
     } 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 
 }

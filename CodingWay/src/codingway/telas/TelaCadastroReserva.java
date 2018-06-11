@@ -30,20 +30,26 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     public TelaCadastroReserva() {
         initComponents();
         btExcluir.setEnabled(false);
-        atualizarTabela();
         if(tfAluno.getText().equals("")){
             buscarLivro.setEnabled(false);
         }
     }
     
-    public void atualizarTabela(){
+    /*public void atualizarTabela(){
         ReservaTableModel modelo = new 
         ReservaTableModel(reservaDAO.listarReserva());
         tbReserva.setModel(modelo);
     }
     
+    public void atualizarTabelaOr(){
+        ReservaTableModel modelo = new 
+        ReservaTableModel(reservaDAO.listarReservaOr());
+        tbReserva.setModel(modelo);
+    }*/
+    
     public void preencherAluno(){
         tfAluno.setText(aluno.getAluno());
+        tfEmail.setText(aluno.getEmail());
         buscarLivro.setEnabled(true);
     }
     
@@ -58,6 +64,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         tfAutor.setText("");
         tfLivro.setText("");
         tfData.setText("");
+        tfEmail.setText("");
     }
     
     private Date formataData(String data) {
@@ -90,8 +97,6 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         buscarAluno = new javax.swing.JButton();
         buscarLivro = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbReserva = new javax.swing.JTable();
         tfAutor = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
@@ -99,6 +104,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         tfData = new javax.swing.JFormattedTextField();
+        tfEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,19 +138,6 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Data Prevista");
-
-        tbReserva.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tbReserva);
 
         tfAutor.setEditable(false);
         tfAutor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -226,14 +219,16 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        tfEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfEmail.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -247,26 +242,27 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tfEmail)))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buscarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(buscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,10 +284,9 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(280, 280, 280)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,6 +342,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
             reserva.setNomeAluno(tfAluno.getText().toUpperCase());
             reserva.setNomeAutor(tfAutor.getText().toUpperCase());
             reserva.setNomeLivro(tfLivro.getText().toUpperCase());
+            reserva.setEmail(tfEmail.getText());
             reserva.setDataPrevista(formataData(tfData.getText()));
 
             if(reserva.getIdReserva()== 0){
@@ -357,13 +353,10 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 reservaDAO.editarReserva(reserva);
                 JOptionPane.showMessageDialog(this, "Reserva editado com sucesso");
                 limparCampos();
-            }
-
-            atualizarTabela();    
+            }  
         } else {
             JOptionPane.showMessageDialog(this, "Impossivel registrar reserva em um dia que já passou!");
         }
- 
     }//GEN-LAST:event_btSalvarActionPerformed
 
    
@@ -417,11 +410,10 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbReserva;
     private javax.swing.JTextField tfAluno;
     private javax.swing.JTextField tfAutor;
     private javax.swing.JFormattedTextField tfData;
+    private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfLivro;
     // End of variables declaration//GEN-END:variables
 }

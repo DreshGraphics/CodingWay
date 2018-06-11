@@ -7,18 +7,19 @@ package codingway.reserva;
 
 import codingway.connection.ConnectionFactory;
 import javax.swing.JOptionPane;
-import org.hibernate.criterion.Restrictions;
 import codingway.util.HibernateUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.*;
 
 /**
  *
@@ -58,6 +59,35 @@ public class ReservaDAO{
     public List<Reserva> listarReserva() {
         iniciarSessao();
         List<Reserva> reservas = sessao.createCriteria(Reserva.class).list();
+        sessao.close();
+        return reservas;
+    }
+    
+    public List<Reserva> listarReservaOr() {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).addOrder(Order.desc("idReserva")).list(); 
+        sessao.close();
+        return reservas;
+    }
+    
+    
+    public List<Reserva> listarReservaData() {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).addOrder(Order.asc("dataPrevista")).list();
+        sessao.close();
+        return reservas;
+    }
+    
+    public List<Reserva> listarBusca(String busca) {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.like("nomeLivro", "%"+busca+"%")).list();
+        sessao.close();
+        return reservas;
+    }
+    
+    public List<Reserva> listarBuscaData(Date data) {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.eq("dataPrevista", data)).list();
         sessao.close();
         return reservas;
     }
