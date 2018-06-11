@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
 public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
-    Pessoa pessoa = new Pessoa() {};
     UsuarioDAO UsuarioDAO;
     
     Date data = new Date();
@@ -36,6 +35,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }
     
     private void limparCampos() {
+        usuario = new Usuario();
         tfNome.setText("");
         tfLogin.setText("");
         tfSenha.setText("");

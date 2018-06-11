@@ -32,6 +32,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     }
     
     private void limparCampos() {
+        livro = new Livro();
         tfNomeLivro.setText("");
         tfNomeAutor.setText("");   
     }
@@ -237,8 +238,9 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             LivroDAO.editarLivro(livro);
             JOptionPane.showMessageDialog(null, "Livro editado com sucesso!");
         }
-            limparCampos();
         }
+        
+        limparCampos();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     /**

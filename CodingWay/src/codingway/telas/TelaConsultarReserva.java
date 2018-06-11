@@ -254,12 +254,12 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
             try{    
             String host ="smtp.gmail.com" ;
-            String user = "oslibaryfvs@gmail.com";
+            String user = "oslibraryfvs@gmail.com";
             String pass = "codingway2018";
             String to = (String) tbReserva.getValueAt(linha, 2);
             String from = "oslibaryfvs@gmail.com";
             String subject = "OSLibrary FVS";
-            String messageText = "A biblioteca da FVS informa que o seu livro " +(String) tbReserva.getValueAt(linha, 3)+ " encontra-se disponível \nVocê tem 24 horas para pegar o livro, caso contrário perderá sua vez! \nAnteciosamente Biblioteca da FVS";
+            String messageText = "A biblioteca da FVS informa que o livro " +(String) tbReserva.getValueAt(linha, 3)+ " encontra-se disponível. \nVocê tem 24 horas para pegar o livro, caso contrário perderá sua vez! \nAtenciosamente Biblioteca da FVS.";
             boolean sessionDebug = false;
  
             Properties props = System.getProperties();

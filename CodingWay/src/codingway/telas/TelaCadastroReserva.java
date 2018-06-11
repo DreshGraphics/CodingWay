@@ -65,6 +65,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     }
     
     private void limparCampos() {
+        reserva = new Reserva();
         tfAluno.setText("");
         tfAutor.setText("");
         tfLivro.setText("");
@@ -357,12 +358,12 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 
                 try{    
             String host ="smtp.gmail.com" ;
-            String user = "oslibaryfvs@gmail.com";
+            String user = "oslibraryfvs@gmail.com";
             String pass = "codingway2018";
             String to = tfEmail.getText();
             String from = "oslibaryfvs@gmail.com";
             String subject = "OSLibrary FVS";
-            String messageText = "A biblioteca da FVS informa que o seu livro " +tfLivro.getText()+ " foi reservado \nEstá previsto para estar disponivel no dia "+tfData.getText()+ "\nAnteciosamente Biblioteca da FVS";
+            String messageText = "A biblioteca da FVS informa que o livro " +tfLivro.getText()+ " foi reservado. \nEstá previsto para estar disponivel no dia "+tfData.getText()+ "\nAtenciosamente Biblioteca da FVS.";
             boolean sessionDebug = false;
  
             Properties props = System.getProperties();

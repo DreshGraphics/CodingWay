@@ -33,6 +33,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     }
     
     private void limparCampos() {
+        aluno = new Aluno();
         tfNome.setText("");
         tfEmail.setText("");
         tfMatricula.setText("");
