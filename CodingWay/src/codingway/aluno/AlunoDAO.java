@@ -63,5 +63,12 @@ public class AlunoDAO extends HibernateUtil {
         sessao.close();
         return aluno;
     }
+    
+    public Aluno pesquisarMatricula(int matricula) {
+        iniciarSessao();
+        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("Matricula", matricula)).uniqueResult();
+        sessao.close();
+        return aluno;
+    }
 
 }

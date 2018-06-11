@@ -253,8 +253,10 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-        if(AlunoDAO.pesquisarEmail(tfEmail.getText()) == null || 
-                AlunoDAO.pesquisarEmail(tfEmail.getText()).getEmail().equals(aluno.getEmail())){
+        if(AlunoDAO.pesquisarEmail(tfEmail.getText()) == null && AlunoDAO.pesquisarMatricula(Integer.parseInt(tfMatricula.getText())) == null){
+                
+            //if(AlunoDAO.pesquisarEmail(tfEmail.getText()).getEmail().equals(aluno.getEmail()))    
+            
             
                 
         if(tfMatricula.getText().equals("") || tfNome.getText().equals("") || tfEmail.getText().equals("")){
@@ -278,7 +280,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         }
         
         } else {
-            JOptionPane.showMessageDialog(this, "O email já existe");
+            JOptionPane.showMessageDialog(this, "O email ou matricula já existe");
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
