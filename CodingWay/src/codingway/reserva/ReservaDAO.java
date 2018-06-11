@@ -78,6 +78,13 @@ public class ReservaDAO{
         return reservas;
     }
     
+    public List<Reserva> listarReservaDataExp() {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.eq("status", "EXPIRADO")).addOrder(Order.desc("dataPrevista")).list();
+        sessao.close();
+        return reservas;
+    }
+    
     public List<Reserva> listarBusca(String busca) {
         iniciarSessao();
         List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.like("nomeLivro", "%"+busca+"%")).list();

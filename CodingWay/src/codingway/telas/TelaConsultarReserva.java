@@ -54,12 +54,17 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         tbReserva.setModel(modelo);
     }
     
-    public void atualizarTabelaLikeData(Date data){
+    public void atualizarTabelaData(Date data){
         ReservaTableModel modelo = new 
         ReservaTableModel(reservaDAO.listarBuscaData(data));
         tbReserva.setModel(modelo);
     }
     
+    public void atualizarTabelaStatus(){
+        ReservaTableModel modelo = new 
+        ReservaTableModel(reservaDAO.listarReservaDataExp());
+        tbReserva.setModel(modelo);
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -75,6 +80,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btBuscar1 = new javax.swing.JButton();
         tfData = new javax.swing.JFormattedTextField();
+        btEspera = new javax.swing.JButton();
+        btExpirado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +150,20 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btEspera.setText("ESPERA");
+        btEspera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEsperaActionPerformed(evt);
+            }
+        });
+
+        btExpirado.setText("EXPIRADO");
+        btExpirado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExpiradoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,11 +173,17 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btVoltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btEspera)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btExpirado)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfData)
@@ -175,7 +202,9 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscar1)
-                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEspera)
+                    .addComponent(btExpirado))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
@@ -299,13 +328,21 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
             atualizarTabela();
         } else {
           try {
-            atualizarTabelaLikeData(f.parse(tfData.getText()));
+            atualizarTabelaData(f.parse(tfData.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(TelaConsultarReserva.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
         
     }//GEN-LAST:event_btBuscar1ActionPerformed
+
+    private void btEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEsperaActionPerformed
+        atualizarTabela();
+    }//GEN-LAST:event_btEsperaActionPerformed
+
+    private void btExpiradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExpiradoActionPerformed
+        atualizarTabelaStatus();
+    }//GEN-LAST:event_btExpiradoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,7 +389,9 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btBuscar1;
+    private javax.swing.JButton btEspera;
     private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btExpirado;
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
