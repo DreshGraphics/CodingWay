@@ -295,11 +295,16 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_tfBuscarKeyPressed
 
     private void btBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscar1ActionPerformed
-        try {
+        if(tfData.getText().equals("  /  /    ")){
+            atualizarTabela();
+        } else {
+          try {
             atualizarTabelaLikeData(f.parse(tfData.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(TelaConsultarReserva.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        
     }//GEN-LAST:event_btBuscar1ActionPerformed
 
     /**

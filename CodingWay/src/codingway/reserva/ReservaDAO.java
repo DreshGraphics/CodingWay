@@ -73,7 +73,7 @@ public class ReservaDAO{
     
     public List<Reserva> listarReservaData() {
         iniciarSessao();
-        List<Reserva> reservas = sessao.createCriteria(Reserva.class).addOrder(Order.asc("dataPrevista")).list();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.eq("status", "ESPERA")).addOrder(Order.asc("dataPrevista")).list();
         sessao.close();
         return reservas;
     }
@@ -97,46 +97,6 @@ public class ReservaDAO{
         Reserva reserva = (Reserva) sessao.createCriteria(Reserva.class).add(Restrictions.eq("idReserva", id)).uniqueResult();
         sessao.close();
         return reserva;
-    }
-    
-    public void reivindicarLivro(){
-        
-    }
-    
-    public List<Reserva> readForDesc(String desc) {
-
-        Connection con = ConnectionFactory.getConnection();
-        
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        List<Reserva> reservas = new ArrayList<>();
-
-        try {
-            stmt = con.prepareStatement("SELECT * FROM reserva WHERE descricao LIKE ?");
-            stmt.setString(1, "%"+desc+"%");
-            
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-
-                Reserva reserva = new Reserva();
-
-                reserva.setIdReserva(rs.getInt("idReserva"));
-                reserva.setNomeAutor(rs.getString("nomeAutor"));
-                reserva.setNomeLivro(rs.getString("nomeLivro"));
-                reserva.setNomeAluno(rs.getString("nomeAluno"));
-                reservas.add(reserva);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
-        }
-
-        return reservas;
-
     }
     
 }
