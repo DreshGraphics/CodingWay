@@ -270,7 +270,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
            reserva = reservaDAO.pesquisarReservaId((int) tbReserva.getValueAt(linha, 0));
            
            //Pegar a data do dia seguinte e passá-la pra dataExpira
-           Date data = reserva.getDataPrevista();
+           Date data = new Date();
            Calendar dataExpira = Calendar.getInstance();
            dataExpira.setTime(data);
            dataExpira.add(Calendar.DAY_OF_MONTH, 1);
@@ -280,7 +280,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
            reserva.setStatus("NOTIFICADO");
            reservaDAO.editarReserva(reserva);
            atualizarTabela();
-           
+            
            /*vencimento.setTime(new Date());
            int inteiro = 1; 
            vencimento.add(Calendar.DAY_OF_MONTH, inteiro);  		
