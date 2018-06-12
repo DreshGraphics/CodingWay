@@ -73,7 +73,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(28, 17, 65));
         jPanel2.add(jSeparator1);
-        jSeparator1.setBounds(0, 440, 100, 10);
+        jSeparator1.setBounds(0, 440, 100, 2);
 
         jSeparator2.setForeground(new java.awt.Color(28, 17, 65));
         jPanel2.add(jSeparator2);
@@ -82,10 +82,12 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_User_Male_15px.png"))); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_User_15px.png"))); // NOI18N
         jPanel1.add(jLabel6);
         jLabel6.setBounds(50, 190, 15, 15);
 
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Password_15px.png"))); // NOI18N
         jPanel1.add(jLabel7);
         jLabel7.setBounds(50, 290, 15, 15);
@@ -128,7 +130,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Enter_24px_1.png"))); // NOI18N
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Enter_25px.png"))); // NOI18N
         btnEntrar.setText("ENTRAR");
         btnEntrar.setContentAreaFilled(false);
         btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -140,7 +142,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel1.add(btnEntrar);
         btnEntrar.setBounds(100, 400, 120, 40);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_26px.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_28px.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +196,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
             usuario = UsuarioDAO.autenticarUsuario(tfLogin.getText(), tfSenha.getText());
 
         if (usuario != null) {
-            MenuPrincipal menu = new MenuPrincipal(usuario);
+            TelaTotal menu = new TelaTotal(usuario);
             menu.setVisible(true);
             dispose();
         }

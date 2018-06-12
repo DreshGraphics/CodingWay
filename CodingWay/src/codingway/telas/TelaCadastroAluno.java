@@ -21,7 +21,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
    
     public TelaCadastroAluno(){
         initComponents();
-        btExcluir.setEnabled(false);
+        btExcluir.setEnabled(true);
         AlunoDAO = new AlunoDAO();
     }
 
@@ -62,7 +62,6 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -76,53 +75,51 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jbCurso = new javax.swing.JComboBox<>();
         tfMatricula = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Aluno");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(200, 10, 300, 50);
-
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Matricula:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 120, 100, 30);
+        jLabel3.setBounds(50, 140, 100, 30);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Nome:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 170, 100, 30);
+        jLabel4.setBounds(50, 190, 100, 30);
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Email:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(50, 220, 100, 30);
+        jLabel6.setBounds(50, 240, 100, 30);
 
+        tfEmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tfEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfEmail);
-        tfEmail.setBounds(150, 220, 500, 30);
+        tfEmail.setBounds(150, 240, 500, 30);
 
+        tfNome.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tfNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNome);
-        tfNome.setBounds(150, 170, 500, 30);
+        tfNome.setBounds(150, 190, 500, 30);
 
-        btVoltar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btVoltar.setForeground(new java.awt.Color(0, 190, 170));
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Back_32px.png"))); // NOI18N
-        btVoltar.setText("Voltar");
+        btVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Back_18px.png"))); // NOI18N
+        btVoltar.setText("VOLTAR");
         btVoltar.setContentAreaFilled(false);
-        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btVoltar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,14 +128,14 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btVoltar);
-        btVoltar.setBounds(10, 430, 100, 50);
+        btVoltar.setBounds(10, 430, 110, 50);
 
-        btLimpar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btLimpar.setForeground(new java.awt.Color(0, 190, 170));
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Broom_24px.png"))); // NOI18N
-        btLimpar.setText("Limpar");
+        btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Broom_18px.png"))); // NOI18N
+        btLimpar.setText("LIMPAR");
         btLimpar.setContentAreaFilled(false);
-        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLimpar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btLimpar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,14 +144,15 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btLimpar);
-        btLimpar.setBounds(160, 430, 100, 50);
+        btLimpar.setBounds(152, 430, 110, 50);
+        btLimpar.getAccessibleContext().setAccessibleName("LIMPAR");
 
-        btPesquisar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btPesquisar.setForeground(new java.awt.Color(0, 190, 170));
-        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_32px_1.png"))); // NOI18N
-        btPesquisar.setText("Pesquisar");
+        btPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_18px.png"))); // NOI18N
+        btPesquisar.setText("PESQUISAR");
         btPesquisar.setContentAreaFilled(false);
-        btPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btPesquisar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btPesquisar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,14 +161,14 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btPesquisar);
-        btPesquisar.setBounds(300, 430, 100, 50);
+        btPesquisar.setBounds(295, 430, 110, 50);
 
-        btExcluir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btExcluir.setForeground(new java.awt.Color(0, 190, 170));
-        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Empty_Trash_32px.png"))); // NOI18N
-        btExcluir.setText("Excluir");
+        btExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Full_Trash_18px.png"))); // NOI18N
+        btExcluir.setText("EXCLUIR");
         btExcluir.setContentAreaFilled(false);
-        btExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -179,14 +177,14 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btExcluir);
-        btExcluir.setBounds(450, 430, 100, 50);
+        btExcluir.setBounds(438, 430, 110, 50);
 
-        btSalvar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btSalvar.setForeground(new java.awt.Color(0, 190, 170));
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Save_24px.png"))); // NOI18N
-        btSalvar.setText("Salvar");
+        btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Save_18px.png"))); // NOI18N
+        btSalvar.setText("SALVAR");
         btSalvar.setContentAreaFilled(false);
-        btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,22 +193,39 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btSalvar);
-        btSalvar.setBounds(590, 430, 100, 50);
+        btSalvar.setBounds(580, 430, 110, 50);
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Curso:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(50, 270, 100, 30);
+        jLabel7.setBounds(50, 290, 100, 30);
 
-        jbCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administração", "Análise de Sistemas", "Ciências Contábeis", "Direito", "Educação Fisica", "Enfermagem", "Fisioterápia", "Psicologia", " " }));
+        jbCurso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administração", "Análise de Sistemas", "Ciências Contábeis", "Direito", "Educação Fisica", "Enfermagem", "Fisioterápia", "Psicologia", "Serviço Social" }));
         jPanel1.add(jbCurso);
-        jbCurso.setBounds(150, 270, 200, 30);
+        jbCurso.setBounds(150, 290, 200, 30);
 
+        tfMatricula.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tfMatricula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfMatricula);
-        tfMatricula.setBounds(150, 120, 200, 30);
+        tfMatricula.setBounds(150, 140, 200, 30);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_28px.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(665, 0, 35, 35);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/TelaCadastroAluno.png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 700, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,6 +299,10 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -326,7 +345,8 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

@@ -96,63 +96,118 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         tfAluno = new javax.swing.JTextField();
         tfLivro = new javax.swing.JTextField();
         buscarAluno = new javax.swing.JButton();
         buscarLivro = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         tfAutor = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         btPesquisar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
-        tfData = new javax.swing.JFormattedTextField();
         tfEmail = new javax.swing.JTextField();
+        tfData = new javax.swing.JTextField();
+        try{  
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");  
+            tfData = new javax.swing.JFormattedTextField(data);  
+        }  
+        catch (Exception e){  
+        }
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Aluno");
+        jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Livro");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Aluno:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(135, 120, 100, 30);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Livro:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(135, 170, 100, 30);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Email:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(135, 270, 100, 30);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("Autor:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(135, 220, 100, 30);
 
         tfAluno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAluno.setEnabled(false);
+        jPanel1.add(tfAluno);
+        tfAluno.setBounds(235, 120, 300, 30);
 
         tfLivro.setEditable(false);
         tfLivro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfLivro.setEnabled(false);
+        jPanel1.add(tfLivro);
+        tfLivro.setBounds(235, 170, 300, 30);
 
-        buscarAluno.setText("PESQUISAR");
+        buscarAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
+        buscarAluno.setContentAreaFilled(false);
+        buscarAluno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buscarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarAlunoActionPerformed(evt);
             }
         });
+        jPanel1.add(buscarAluno);
+        buscarAluno.setBounds(535, 120, 30, 30);
 
-        buscarLivro.setText("PESQUISAR");
+        buscarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
         buscarLivro.setToolTipText("");
+        buscarLivro.setContentAreaFilled(false);
+        buscarLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buscarLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarLivroActionPerformed(evt);
             }
         });
+        jPanel1.add(buscarLivro);
+        buscarLivro.setBounds(535, 170, 30, 30);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Data Prevista");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Data Prevista:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(135, 320, 100, 30);
 
         tfAutor.setEditable(false);
         tfAutor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAutor.setEnabled(false);
+        jPanel1.add(tfAutor);
+        tfAutor.setBounds(235, 220, 300, 30);
 
-        btVoltar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btVoltar.setForeground(new java.awt.Color(0, 190, 170));
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Back_32px.png"))); // NOI18N
-        btVoltar.setText("Voltar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_28px.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(665, 0, 35, 35);
+
+        btVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Back_18px.png"))); // NOI18N
+        btVoltar.setText("VOLTAR");
         btVoltar.setContentAreaFilled(false);
         btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -162,11 +217,13 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 btVoltarActionPerformed(evt);
             }
         });
+        jPanel1.add(btVoltar);
+        btVoltar.setBounds(10, 430, 110, 50);
 
-        btLimpar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btLimpar.setForeground(new java.awt.Color(0, 190, 170));
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Broom_24px.png"))); // NOI18N
-        btLimpar.setText("Limpar");
+        btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Broom_18px.png"))); // NOI18N
+        btLimpar.setText("LIMPAR");
         btLimpar.setContentAreaFilled(false);
         btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimpar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -176,11 +233,13 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 btLimparActionPerformed(evt);
             }
         });
+        jPanel1.add(btLimpar);
+        btLimpar.setBounds(152, 430, 110, 50);
 
-        btPesquisar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btPesquisar.setForeground(new java.awt.Color(0, 190, 170));
-        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_32px_1.png"))); // NOI18N
-        btPesquisar.setText("Pesquisar");
+        btPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_18px.png"))); // NOI18N
+        btPesquisar.setText("PESQUISAR");
         btPesquisar.setContentAreaFilled(false);
         btPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btPesquisar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -190,11 +249,13 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 btPesquisarActionPerformed(evt);
             }
         });
+        jPanel1.add(btPesquisar);
+        btPesquisar.setBounds(295, 430, 110, 50);
 
-        btExcluir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btExcluir.setForeground(new java.awt.Color(0, 190, 170));
-        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Empty_Trash_32px.png"))); // NOI18N
-        btExcluir.setText("Excluir");
+        btExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Full_Trash_18px.png"))); // NOI18N
+        btExcluir.setText("EXCLUIR");
         btExcluir.setContentAreaFilled(false);
         btExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -204,11 +265,13 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 btExcluirActionPerformed(evt);
             }
         });
+        jPanel1.add(btExcluir);
+        btExcluir.setBounds(438, 430, 110, 50);
 
-        btSalvar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btSalvar.setForeground(new java.awt.Color(0, 190, 170));
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Save_24px.png"))); // NOI18N
-        btSalvar.setText("Salvar");
+        btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Save_18px.png"))); // NOI18N
+        btSalvar.setText("SALVAR");
         btSalvar.setContentAreaFilled(false);
         btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -218,88 +281,34 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                 btSalvarActionPerformed(evt);
             }
         });
-
-        try {
-            tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jPanel1.add(btSalvar);
+        btSalvar.setBounds(580, 430, 110, 50);
 
         tfEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfEmail.setEnabled(false);
+        jPanel1.add(tfEmail);
+        tfEmail.setBounds(235, 270, 300, 30);
+
+        tfData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(tfData);
+        tfData.setBounds(235, 320, 100, 30);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/TelaCadastroReserva.png"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 0, 700, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfAluno))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tfEmail)))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buscarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buscarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buscarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(280, 280, 280)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -405,6 +414,10 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -453,12 +466,17 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton buscarAluno;
     private javax.swing.JButton buscarLivro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfAluno;
     private javax.swing.JTextField tfAutor;
-    private javax.swing.JFormattedTextField tfData;
+    private javax.swing.JTextField tfData;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfLivro;
     // End of variables declaration//GEN-END:variables

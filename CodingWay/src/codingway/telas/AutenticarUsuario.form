@@ -140,8 +140,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/codingway/imagens/icons8_User_Male_15px.png"/>
+                  <Image iconType="3" name="/codingway/imagens/icons8_User_15px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -152,6 +153,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/codingway/imagens/icons8_Password_15px.png"/>
                 </Property>
@@ -255,7 +257,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/codingway/imagens/icons8_Enter_24px_1.png"/>
+                  <Image iconType="3" name="/codingway/imagens/icons8_Enter_25px.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ENTRAR"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -275,7 +277,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/codingway/imagens/icons8_Multiply_26px.png"/>
+                  <Image iconType="3" name="/codingway/imagens/icons8_Multiply_28px.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
