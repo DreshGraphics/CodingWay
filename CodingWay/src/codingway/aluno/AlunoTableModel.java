@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 public class AlunoTableModel extends AbstractTableModel {
 
     private List<Aluno> alunos = new ArrayList<>();
-    private String[] colunas = {"Id","Matricula","Nome","Email","Curso"};
+    private String[] colunas = {"ID","Matricula","Nome","Email","Curso"};
 
     public AlunoTableModel(List<Aluno> alunos) {
         this.alunos = alunos;

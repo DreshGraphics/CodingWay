@@ -22,7 +22,6 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     
     public TelaCadastroLivro(){
         initComponents();
-        btExcluir.setEnabled(false);
         LivroDAO = new LivroDAO();
     }
     
@@ -66,7 +65,6 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         btPesquisar = new javax.swing.JButton();
-        btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         tfNomeAutor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -106,8 +104,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btVoltar);
-        btVoltar.setBounds(10, 430, 110, 50);
-        btVoltar.getAccessibleContext().setAccessibleName("VOLTAR");
+        btVoltar.setBounds(30, 430, 110, 50);
 
         btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btLimpar.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,8 +120,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btLimpar);
-        btLimpar.setBounds(152, 430, 110, 50);
-        btLimpar.getAccessibleContext().setAccessibleName("LIMPAR");
+        btLimpar.setBounds(170, 430, 110, 50);
 
         btPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btPesquisar.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,24 +136,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btPesquisar);
-        btPesquisar.setBounds(295, 430, 110, 50);
-        btPesquisar.getAccessibleContext().setAccessibleName("PESQUISAR");
-
-        btExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Full_Trash_18px.png"))); // NOI18N
-        btExcluir.setText("EXCLUIR");
-        btExcluir.setContentAreaFilled(false);
-        btExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btExcluirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btExcluir);
-        btExcluir.setBounds(438, 430, 110, 50);
+        btPesquisar.setBounds(420, 430, 110, 50);
 
         btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,7 +152,7 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btSalvar);
-        btSalvar.setBounds(580, 430, 110, 50);
+        btSalvar.setBounds(560, 430, 110, 50);
 
         tfNomeAutor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tfNomeAutor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -227,7 +206,6 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limparCampos();
-        btExcluir.setEnabled(false);
         livro = new Livro();
     }//GEN-LAST:event_btLimparActionPerformed
 
@@ -236,10 +214,6 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         telaPesquisa.setVisible(true);
         dispose();
     }//GEN-LAST:event_btPesquisarActionPerformed
-
-    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-
-    }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         //if(LivroDAO.pesquisarAutor(tfNomeAutor.getText()) == null){
@@ -311,7 +285,6 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btExcluir;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;

@@ -5,7 +5,6 @@
  */
 package codingway.reserva;
 
-import codingway.connection.ConnectionFactory;
 import javax.swing.JOptionPane;
 import codingway.util.HibernateUtil;
 import java.sql.Connection;
