@@ -170,10 +170,15 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         jPanel1.add(tfData);
         tfData.setBounds(50, 30, 80, 30);
 
-        jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "EXPIRADO" }));
+        jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "NOTIFICADO" }));
         jbStatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jbStatusItemStateChanged(evt);
+            }
+        });
+        jbStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbStatusActionPerformed(evt);
             }
         });
         jPanel1.add(jbStatus);
@@ -261,10 +266,18 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
            transport.connect(host, user, pass);
            transport.sendMessage(msg, msg.getAllRecipients());
            transport.close();
-           JOptionPane.showMessageDialog(this, "Email enviado para o aluno " +(String) tbReserva.getValueAt(linha, 1)+ " com sucesso !");
-           
+           JOptionPane.showMessageDialog(this, "Email enviado para o aluno " +(String) tbReserva.getValueAt(linha, 1)+ " com sucesso !");      
            reserva = reservaDAO.pesquisarReservaId((int) tbReserva.getValueAt(linha, 0));
-           reserva.setStatus("EXPIRADO");
+           
+           //Pegar a data do dia seguinte e passá-la pra dataExpira
+           Date data = reserva.getDataPrevista();
+           Calendar dataExpira = Calendar.getInstance();
+           dataExpira.setTime(data);
+           dataExpira.add(Calendar.DAY_OF_MONTH, 1);
+           Date dataExpiraDate = dataExpira.getTime();       
+           
+           reserva.setDataExpira(dataExpiraDate);           
+           reserva.setStatus("NOTIFICADO");
            reservaDAO.editarReserva(reserva);
            atualizarTabela();
            
@@ -316,10 +329,14 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     private void jbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jbStatusItemStateChanged
         if(jbStatus.getSelectedItem().equals("ESPERA")){
             atualizarTabela();
-        } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
+        } else if(jbStatus.getSelectedItem().equals("NOTIFICADO")){
             atualizarTabelaStatus();
         }
     }//GEN-LAST:event_jbStatusItemStateChanged
+
+    private void jbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbStatusActionPerformed
 
     /**
      * @param args the command line arguments

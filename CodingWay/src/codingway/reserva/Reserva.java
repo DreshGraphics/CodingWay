@@ -25,6 +25,9 @@ public class Reserva{
     private Date dataPrevista;
     private String email;
     private String status;
+    
+    @Column(length = 100, nullable = true)
+    private Date dataExpira;
 
     public int getIdReserva() {
         return idReserva;
@@ -80,5 +83,19 @@ public class Reserva{
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    /**
+     * @return the dataExpira
+     */
+    public Date getDataExpira() {
+        return dataExpira;
+    }
+
+    /**
+     * @param dataExpira the dataExpira to set
+     */
+    public void setDataExpira(Date dataExpira) {
+        this.dataExpira = dataExpira;
     }
 }
