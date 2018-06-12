@@ -31,6 +31,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbLivro = new javax.swing.JTable();
         btVoltar = new javax.swing.JButton();
@@ -39,6 +40,8 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         btRetornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(null);
 
         tbLivro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,12 +56,17 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbLivro);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 20, 600, 420);
+
         btVoltar.setText("VOLTAR");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
             }
         });
+        jPanel1.add(btVoltar);
+        btVoltar.setBounds(50, 450, 100, 30);
 
         btEditar.setText("EDITAR");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +74,8 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
                 btEditarActionPerformed(evt);
             }
         });
+        jPanel1.add(btEditar);
+        btEditar.setBounds(170, 450, 100, 30);
 
         btExcluir.setText("EXCLUIR");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +83,8 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
                 btExcluirActionPerformed(evt);
             }
         });
+        jPanel1.add(btExcluir);
+        btExcluir.setBounds(290, 450, 100, 30);
 
         btRetornar.setText("RETORNAR");
         btRetornar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,37 +92,18 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
                 btRetornarActionPerformed(evt);
             }
         });
+        jPanel1.add(btRetornar);
+        btRetornar.setBounds(410, 450, 100, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btVoltar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btRetornar)))
-                .addGap(46, 46, 46))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btVoltar)
-                    .addComponent(btEditar)
-                    .addComponent(btExcluir)
-                    .addComponent(btRetornar))
-                .addGap(21, 21, 21))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -216,6 +209,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btRetornar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbLivro;
     // End of variables declaration//GEN-END:variables

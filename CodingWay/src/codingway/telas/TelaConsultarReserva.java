@@ -71,18 +71,21 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbReserva = new javax.swing.JTable();
+        tfBuscar = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
-        tfBuscar = new javax.swing.JTextField();
-        btBuscar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btBuscar1 = new javax.swing.JButton();
+        btBuscarLike = new javax.swing.JButton();
+        btNotificar = new javax.swing.JButton();
+        btBuscarDt = new javax.swing.JButton();
         tfData = new javax.swing.JFormattedTextField();
         jbStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(null);
 
         tbReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,12 +105,25 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbReserva);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 80, 600, 350);
+
+        tfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfBuscarKeyPressed(evt);
+            }
+        });
+        jPanel1.add(tfBuscar);
+        tfBuscar.setBounds(400, 30, 150, 30);
+
         btVoltar.setText("VOLTAR");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
             }
         });
+        jPanel1.add(btVoltar);
+        btVoltar.setBounds(50, 450, 100, 30);
 
         btExcluir.setText("EXCLUIR");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -115,92 +131,70 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 btExcluirActionPerformed(evt);
             }
         });
+        jPanel1.add(btExcluir);
+        btExcluir.setBounds(170, 450, 100, 30);
 
-        tfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfBuscarKeyPressed(evt);
-            }
-        });
-
-        btBuscar.setText("BUSCAR");
-        btBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btBuscarLike.setText("BUSCAR");
+        btBuscarLike.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarActionPerformed(evt);
+                btBuscarLikeActionPerformed(evt);
             }
         });
+        jPanel1.add(btBuscarLike);
+        btBuscarLike.setBounds(550, 30, 100, 30);
 
-        jButton1.setText("REINVIDICAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btNotificar.setText("NOTIFICAR");
+        btNotificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btNotificarActionPerformed(evt);
             }
         });
+        jPanel1.add(btNotificar);
+        btNotificar.setBounds(290, 450, 100, 30);
 
-        btBuscar1.setText("BUSCAR");
-        btBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btBuscarDt.setText("BUSCAR");
+        btBuscarDt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscar1ActionPerformed(evt);
+                btBuscarDtActionPerformed(evt);
             }
         });
+        jPanel1.add(btBuscarDt);
+        btBuscarDt.setBounds(130, 30, 80, 30);
 
         try {
             tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(tfData);
+        tfData.setBounds(50, 30, 80, 30);
 
         jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "EXPIRADO" }));
+        jbStatus.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jbStatusItemStateChanged(evt);
+            }
+        });
         jbStatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbStatusMouseClicked(evt);
             }
         });
+        jPanel1.add(jbStatus);
+        jbStatus.setBounds(550, 450, 100, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btVoltar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btExcluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1))
-                            .addComponent(jbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfData)
-                            .addComponent(tfBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btBuscar)
-                            .addComponent(btBuscar1))))
-                .addGap(46, 46, 46))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btBuscar1)
-                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btVoltar)
-                    .addComponent(btExcluir)
-                    .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBuscar)
-                    .addComponent(jButton1))
-                .addGap(21, 21, 21))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -232,7 +226,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tbReservaMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNotificarActionPerformed
         int linha = tbReserva.getSelectedRow();
         if(linha == -1){
             JOptionPane.showMessageDialog(rootPane, "Selecione uma linha!");
@@ -290,16 +284,16 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         }
             
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btNotificarActionPerformed
 
-    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+    private void btBuscarLikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarLikeActionPerformed
         if(tfBuscar.getText().equals("")){
             atualizarTabela();
             
         } else {
         atualizarTabelaLike(tfBuscar.getText());
         }
-    }//GEN-LAST:event_btBuscarActionPerformed
+    }//GEN-LAST:event_btBuscarLikeActionPerformed
 
     private void tfBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -311,7 +305,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfBuscarKeyPressed
 
-    private void btBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscar1ActionPerformed
+    private void btBuscarDtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarDtActionPerformed
         if(tfData.getText().equals("  /  /    ")){
             atualizarTabela();
         } else {
@@ -322,15 +316,23 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         }
         }
         
-    }//GEN-LAST:event_btBuscar1ActionPerformed
+    }//GEN-LAST:event_btBuscarDtActionPerformed
 
     private void jbStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbStatusMouseClicked
+        /*if(jbStatus.getSelectedItem().equals("ESPERA")){
+            atualizarTabela();
+        } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
+            atualizarTabelaStatus();
+        }*/
+    }//GEN-LAST:event_jbStatusMouseClicked
+
+    private void jbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jbStatusItemStateChanged
         if(jbStatus.getSelectedItem().equals("ESPERA")){
             atualizarTabela();
         } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
             atualizarTabelaStatus();
         }
-    }//GEN-LAST:event_jbStatusMouseClicked
+    }//GEN-LAST:event_jbStatusItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -375,11 +377,12 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBuscar;
-    private javax.swing.JButton btBuscar1;
+    private javax.swing.JButton btBuscarDt;
+    private javax.swing.JButton btBuscarLike;
     private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btNotificar;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jbStatus;
     private javax.swing.JTable tbReserva;
