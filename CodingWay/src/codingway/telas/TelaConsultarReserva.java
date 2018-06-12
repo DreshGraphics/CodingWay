@@ -176,11 +176,6 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 jbStatusItemStateChanged(evt);
             }
         });
-        jbStatus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbStatusMouseClicked(evt);
-            }
-        });
         jPanel1.add(jbStatus);
         jbStatus.setBounds(550, 450, 100, 30);
 
@@ -317,14 +312,6 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btBuscarDtActionPerformed
-
-    private void jbStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbStatusMouseClicked
-        /*if(jbStatus.getSelectedItem().equals("ESPERA")){
-            atualizarTabela();
-        } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
-            atualizarTabelaStatus();
-        }*/
-    }//GEN-LAST:event_jbStatusMouseClicked
 
     private void jbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jbStatusItemStateChanged
         if(jbStatus.getSelectedItem().equals("ESPERA")){
