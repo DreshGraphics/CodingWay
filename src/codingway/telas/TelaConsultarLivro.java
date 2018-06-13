@@ -39,6 +39,8 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         btExcluir = new javax.swing.JButton();
         btRetornar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +62,7 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbLivro);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 140, 600, 200);
+        jScrollPane1.setBounds(50, 150, 600, 200);
 
         btVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,6 +130,19 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1);
         jButton1.setBounds(665, 0, 35, 35);
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 51));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 51)));
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(420, 110, 200, 30);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jButton2);
+        jButton2.setBounds(620, 110, 30, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/TelaConsultaLivro.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -254,9 +269,11 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     private javax.swing.JButton btRetornar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tbLivro;
     // End of variables declaration//GEN-END:variables
 }

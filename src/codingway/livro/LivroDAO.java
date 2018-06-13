@@ -76,5 +76,12 @@ public class LivroDAO{
         return livro;
     }
     
+    public List<Livro> listarBuscaLike(String busca) {
+        iniciarSessao();
+        List<Livro> livros = sessao.createCriteria(Livro.class).add(Restrictions.like("nomeLivro", "%"+busca+"%")).list();
+        sessao.close();
+        return livros;
+    }
+    
     
 }

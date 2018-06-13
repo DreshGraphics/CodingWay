@@ -85,7 +85,8 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(50, 180, 100, 30);
 
-        tfNomeLivro.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfNomeLivro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfNomeLivro.setForeground(new java.awt.Color(0, 0, 51));
         tfNomeLivro.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNomeLivro);
         tfNomeLivro.setBounds(180, 180, 470, 30);
@@ -154,7 +155,8 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
         jPanel1.add(btSalvar);
         btSalvar.setBounds(560, 430, 110, 50);
 
-        tfNomeAutor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfNomeAutor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfNomeAutor.setForeground(new java.awt.Color(0, 0, 51));
         tfNomeAutor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNomeAutor);
         tfNomeAutor.setBounds(180, 240, 470, 30);

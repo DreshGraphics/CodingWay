@@ -147,6 +147,7 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(665, 0, 35, 35);
 
+        jbCurso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso", "Administração", "Análise de Sistemas", "Ciências Contábeis", "Direito", "Educação Fisica", "Enfermagem", "Fisioterápia", "Psicologia", "Serviço Social" }));
         jbCurso.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -156,7 +157,10 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
         jPanel1.add(jbCurso);
         jbCurso.setBounds(50, 110, 180, 30);
 
-        tfBuscaAluno.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfBuscaAluno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfBuscaAluno.setForeground(new java.awt.Color(0, 0, 51));
+        tfBuscaAluno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfBuscaAluno.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 51)));
         tfBuscaAluno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfBuscaAlunoKeyPressed(evt);
@@ -169,6 +173,8 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
         btBuscaAluno.setForeground(new java.awt.Color(0, 0, 51));
         btBuscaAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
         btBuscaAluno.setText("ALUNO");
+        btBuscaAluno.setContentAreaFilled(false);
+        btBuscaAluno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btBuscaAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscaAlunoActionPerformed(evt);

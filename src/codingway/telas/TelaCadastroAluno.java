@@ -103,12 +103,12 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(50, 240, 100, 30);
 
-        tfEmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tfEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfEmail);
         tfEmail.setBounds(150, 240, 500, 30);
 
-        tfNome.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tfNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfNome);
         tfNome.setBounds(150, 190, 500, 30);
@@ -189,7 +189,7 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
         jPanel1.add(jbCurso);
         jbCurso.setBounds(150, 290, 200, 30);
 
-        tfMatricula.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfMatricula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tfMatricula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(tfMatricula);
         tfMatricula.setBounds(150, 140, 200, 30);
