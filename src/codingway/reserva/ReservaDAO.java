@@ -70,16 +70,23 @@ public class ReservaDAO{
     }
     
     
-    public List<Reserva> listarReservaData() {
+    public List<Reserva> listarReservaData(String status) {
         iniciarSessao();
-        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.ilike("status", "ESPERA")).addOrder(Order.asc("dataPrevista")).list();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.ilike("status", status)).addOrder(Order.asc("idReserva")).list();
+        sessao.close();
+        return reservas;
+    }
+    
+    public List<Reserva> listarReservaStatusExp() {
+        iniciarSessao();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.ilike("status", "EXPIRADO")).addOrder(Order.desc("dataExpira")).list();
         sessao.close();
         return reservas;
     }
     
     public List<Reserva> listarReservaDataExp() {
         iniciarSessao();
-        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.ilike("status", "NOTIFICADO")).addOrder(Order.desc("dataPrevista")).list();
+        List<Reserva> reservas = sessao.createCriteria(Reserva.class).add(Restrictions.ilike("status", "NOTIFICADO")).addOrder(Order.asc("dataExpira")).list();
         sessao.close();
         return reservas;
     }

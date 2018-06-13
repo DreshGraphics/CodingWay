@@ -30,9 +30,15 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
         tbAluno.setModel(modelo);
     }
     
-    public void atualizarTabelaLike(String busca){
+    public void atualizarTabelaLike(String busca, String curso){
         AlunoTableModel modelo = new 
-        AlunoTableModel(alunoDAO.listarBusca(busca));
+        AlunoTableModel(alunoDAO.listarBusca(busca,curso));
+        tbAluno.setModel(modelo);
+    }
+    
+    public void atualizarTabelaBusca(String busca){
+        AlunoTableModel modelo = new 
+        AlunoTableModel(alunoDAO.listarBuscaLike(busca));
         tbAluno.setModel(modelo);
     }
 
@@ -284,17 +290,25 @@ public class TelaConsultarAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCursoItemStateChanged
 
     private void btBuscaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscaAlunoActionPerformed
-        atualizarTabelaLike(tfBuscaAluno.getText());
+            if (jbCurso.getSelectedItem().equals("Curso")) {
+                String curso = tfBuscaAluno.getText();
+                atualizarTabelaBusca(curso);
+            } else {
+                String curso = (String) jbCurso.getSelectedItem();
+                atualizarTabelaLike(tfBuscaAluno.getText(), curso);
+            }
     }//GEN-LAST:event_btBuscaAlunoActionPerformed
 
     private void tfBuscaAlunoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscaAlunoKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(tfBuscaAluno.getText().equals("")){
-                atualizarTabela();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (jbCurso.getSelectedItem().equals("Curso")) {
+                String curso = tfBuscaAluno.getText();
+                atualizarTabelaBusca(curso);
             } else {
-                atualizarTabelaLike(tfBuscaAluno.getText());
+                String curso = (String) jbCurso.getSelectedItem();
+                atualizarTabelaLike(tfBuscaAluno.getText(), curso);
+            }
         }
-      }
     }//GEN-LAST:event_tfBuscaAlunoKeyPressed
 
     /**

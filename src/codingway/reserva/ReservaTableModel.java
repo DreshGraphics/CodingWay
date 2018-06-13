@@ -18,9 +18,10 @@ public class ReservaTableModel extends AbstractTableModel {
 
     private List<Reserva> reservas = new ArrayList<>();
     private String[] colunas = {"ID", "Aluno", "Email", "Livro", "Autor", "Data Prevista", "Status"};
+    
 
-    public ReservaTableModel(List<Reserva> reservass) {
-        this.reservas = reservass;
+    public ReservaTableModel(List<Reserva> reservas) {
+        this.reservas = reservas;
     }
 
     private String converterDataString(Date date) {

@@ -38,7 +38,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
     public TelaConsultarReserva() {
         initComponents();
-        atualizarTabela();
+        String status = "ESPERA";
+        atualizarTabela(status);
         Util.checkTimer();
     }
 
@@ -46,8 +47,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         return f.format(date);
     }
 
-    public void atualizarTabela() {
-        ReservaTableModel modelo = new ReservaTableModel(reservaDAO.listarReservaData());
+    public void atualizarTabela(String status) {
+        ReservaTableModel modelo = new ReservaTableModel(reservaDAO.listarReservaData(status));
         tbReserva.setModel(modelo);
     }
 
@@ -65,6 +66,11 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         ReservaTableModel modelo = new ReservaTableModel(reservaDAO.listarReservaDataExp());
         tbReserva.setModel(modelo);
     }
+    
+    public void atualizarTabelaStatusDt(){
+        ReservaTableModel modelo = new ReservaTableModel(reservaDAO.listarReservaStatusExp());
+        tbReserva.setModel(modelo);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -79,10 +85,13 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         btBuscarLike = new javax.swing.JButton();
         btNotificar = new javax.swing.JButton();
         btBuscarDt = new javax.swing.JButton();
-        tfData = new javax.swing.JFormattedTextField();
+        tfData = new javax.swing.JTextField();
+        try{       javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");       tfData = new javax.swing.JFormattedTextField(data);    }       catch (Exception e){    }
         jbStatus = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(null);
 
@@ -105,83 +114,126 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbReserva);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 80, 600, 350);
+        jScrollPane1.setBounds(50, 150, 600, 200);
 
+        tfBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfBuscar.setForeground(new java.awt.Color(0, 0, 51));
+        tfBuscar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfBuscar.setText("Buscar Livro");
+        tfBuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 51)));
+        tfBuscar.setCaretColor(new java.awt.Color(0, 0, 51));
+        tfBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfBuscarFocusGained(evt);
+            }
+        });
+        tfBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfBuscarMouseClicked(evt);
+            }
+        });
         tfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfBuscarKeyPressed(evt);
             }
         });
         jPanel1.add(tfBuscar);
-        tfBuscar.setBounds(400, 30, 150, 30);
+        tfBuscar.setBounds(420, 110, 200, 30);
 
+        btVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Back_18px.png"))); // NOI18N
         btVoltar.setText("VOLTAR");
+        btVoltar.setContentAreaFilled(false);
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
             }
         });
         jPanel1.add(btVoltar);
-        btVoltar.setBounds(50, 450, 100, 30);
+        btVoltar.setBounds(50, 450, 140, 30);
 
+        btExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Full_Trash_18px.png"))); // NOI18N
         btExcluir.setText("EXCLUIR");
+        btExcluir.setContentAreaFilled(false);
+        btExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btExcluirActionPerformed(evt);
             }
         });
         jPanel1.add(btExcluir);
-        btExcluir.setBounds(170, 450, 100, 30);
+        btExcluir.setBounds(190, 450, 140, 30);
 
-        btBuscarLike.setText("BUSCAR");
+        btBuscarLike.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btBuscarLike.setForeground(new java.awt.Color(0, 0, 51));
+        btBuscarLike.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
+        btBuscarLike.setContentAreaFilled(false);
+        btBuscarLike.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btBuscarLike.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btBuscarLike.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarLikeActionPerformed(evt);
             }
         });
         jPanel1.add(btBuscarLike);
-        btBuscarLike.setBounds(550, 30, 100, 30);
+        btBuscarLike.setBounds(620, 110, 30, 30);
 
+        btNotificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btNotificar.setForeground(new java.awt.Color(255, 255, 255));
+        btNotificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Notification_20px.png"))); // NOI18N
         btNotificar.setText("NOTIFICAR");
+        btNotificar.setContentAreaFilled(false);
+        btNotificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNotificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNotificarActionPerformed(evt);
             }
         });
         jPanel1.add(btNotificar);
-        btNotificar.setBounds(290, 450, 100, 30);
+        btNotificar.setBounds(370, 450, 140, 30);
 
-        btBuscarDt.setText("BUSCAR");
+        btBuscarDt.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btBuscarDt.setForeground(new java.awt.Color(0, 0, 51));
+        btBuscarDt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
+        btBuscarDt.setActionCommand("");
+        btBuscarDt.setContentAreaFilled(false);
+        btBuscarDt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btBuscarDt.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         btBuscarDt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarDtActionPerformed(evt);
             }
         });
         jPanel1.add(btBuscarDt);
-        btBuscarDt.setBounds(130, 30, 80, 30);
+        btBuscarDt.setBounds(150, 110, 30, 30);
 
-        try {
-            tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        tfData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfData.setForeground(new java.awt.Color(0, 0, 51));
         tfData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfData.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        tfData.setCaretColor(new java.awt.Color(0, 0, 51));
+        tfData.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel1.add(tfData);
-        tfData.setBounds(50, 30, 80, 30);
+        tfData.setBounds(50, 110, 100, 30);
 
-        jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "NOTIFICADO" }));
+        jbStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPERA", "NOTIFICADO", "EXPIRADO" }));
+        jbStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbStatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jbStatusItemStateChanged(evt);
             }
         });
-        jbStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbStatusActionPerformed(evt);
-            }
-        });
         jPanel1.add(jbStatus);
-        jbStatus.setBounds(550, 450, 100, 30);
+        jbStatus.setBounds(510, 450, 140, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/TelaConsultaReserva.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 700, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,7 +261,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
             reserva = reservaDAO.pesquisarReservaId((int) tbReserva.getValueAt(linha, 0));
             reservaDAO.excluirReserva(reserva);
             JOptionPane.showMessageDialog(rootPane, "Reserva excluída!");
-            atualizarTabela();
+            String status = "ESPERA";
+            atualizarTabela(status);
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 
@@ -276,7 +329,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 reserva.setDataExpira(data);
                 reserva.setStatus("NOTIFICADO");
                 reservaDAO.editarReserva(reserva);
-                atualizarTabela();
+                String status = "ESPERA";
+                atualizarTabela("ESPERA");
 
                 /*vencimento.setTime(new Date());
            int inteiro = 1; 
@@ -290,8 +344,9 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btNotificarActionPerformed
 
     private void btBuscarLikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarLikeActionPerformed
-        if (tfBuscar.getText().equals("")) {
-            atualizarTabela();
+        if (tfBuscar.getText().equals("") || tfBuscar.getText().equals("Buscar Livro")) {
+            String status = "ESPERA";
+            atualizarTabela(status);
 
         } else {
             atualizarTabelaLike(tfBuscar.getText());
@@ -300,8 +355,9 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
     private void tfBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (tfBuscar.getText().equals("")) {
-                atualizarTabela();
+            if (tfBuscar.getText().equals("") || tfBuscar.getText().equals("Buscar Livro")) {
+                String status = "ESPERA";
+                atualizarTabela(status);
             } else {
                 atualizarTabelaLike(tfBuscar.getText());
             }
@@ -310,7 +366,8 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
     private void btBuscarDtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarDtActionPerformed
         if (tfData.getText().equals("  /  /    ")) {
-            atualizarTabela();
+            String status = "ESPERA";
+            atualizarTabela(status);
         } else {
             try {
                 atualizarTabelaData(f.parse(tfData.getText()));
@@ -323,15 +380,28 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
 
     private void jbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jbStatusItemStateChanged
         if (jbStatus.getSelectedItem().equals("ESPERA")) {
-            atualizarTabela();
+            String status = "ESPERA";
+            atualizarTabela(status);
         } else if (jbStatus.getSelectedItem().equals("NOTIFICADO")) {
             atualizarTabelaStatus();
+        } else if(jbStatus.getSelectedItem().equals("EXPIRADO")){
+            atualizarTabelaStatusDt();
         }
     }//GEN-LAST:event_jbStatusItemStateChanged
 
-    private void jbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbStatusActionPerformed
+    private void tfBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfBuscarMouseClicked
+        tfBuscar.setText("");
+    }//GEN-LAST:event_tfBuscarMouseClicked
+
+    private void tfBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfBuscarFocusGained
+        if (tfBuscar.getText().equals("") || tfBuscar.getText().equals("Buscar Livro")) {
+            String status = "ESPERA";
+            atualizarTabela(status);
+
+        } else {
+            atualizarTabelaLike(tfBuscar.getText());
+        }
+    }//GEN-LAST:event_tfBuscarFocusGained
 
     /**
      * @param args the command line arguments
@@ -381,11 +451,12 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btNotificar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jbStatus;
     private javax.swing.JTable tbReserva;
     private javax.swing.JTextField tfBuscar;
-    private javax.swing.JFormattedTextField tfData;
+    private javax.swing.JTextField tfData;
     // End of variables declaration//GEN-END:variables
 }

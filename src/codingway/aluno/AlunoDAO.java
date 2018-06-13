@@ -79,7 +79,14 @@ public class AlunoDAO extends HibernateUtil {
         return alunos;
     }
 
-    public List<Aluno> listarBusca(String busca) {
+    public List<Aluno> listarBusca(String busca, String curso) {
+        iniciarSessao();
+        List<Aluno> alunos = sessao.createCriteria(Aluno.class).add(Restrictions.like("Curso", curso)).add(Restrictions.like("Aluno", "%"+busca+"%")).list();
+        sessao.close();
+        return alunos;
+    }
+    
+    public List<Aluno> listarBuscaLike(String busca) {
         iniciarSessao();
         List<Aluno> alunos = sessao.createCriteria(Aluno.class).add(Restrictions.like("Aluno", "%"+busca+"%")).list();
         sessao.close();
