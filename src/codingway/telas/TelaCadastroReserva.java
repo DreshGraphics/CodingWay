@@ -129,17 +129,17 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Livro:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(135, 170, 100, 30);
+        jLabel2.setBounds(135, 220, 100, 30);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Email:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(135, 270, 100, 30);
+        jLabel5.setBounds(135, 170, 100, 30);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Autor:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(135, 220, 100, 30);
+        jLabel6.setBounds(135, 270, 100, 30);
 
         tfAluno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAluno.setEnabled(false);
@@ -150,7 +150,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         tfLivro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfLivro.setEnabled(false);
         jPanel1.add(tfLivro);
-        tfLivro.setBounds(235, 170, 300, 30);
+        tfLivro.setBounds(235, 220, 300, 30);
 
         buscarAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
         buscarAluno.setContentAreaFilled(false);
@@ -173,7 +173,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
             }
         });
         jPanel1.add(buscarLivro);
-        buscarLivro.setBounds(535, 170, 30, 30);
+        buscarLivro.setBounds(535, 220, 30, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Data Prevista:");
@@ -184,7 +184,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         tfAutor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAutor.setEnabled(false);
         jPanel1.add(tfAutor);
-        tfAutor.setBounds(235, 220, 300, 30);
+        tfAutor.setBounds(235, 270, 300, 30);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Multiply_28px.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -264,7 +264,7 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
         tfEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfEmail.setEnabled(false);
         jPanel1.add(tfEmail);
-        tfEmail.setBounds(235, 270, 300, 30);
+        tfEmail.setBounds(235, 170, 300, 30);
 
         tfData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tfData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
