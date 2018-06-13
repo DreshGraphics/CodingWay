@@ -39,7 +39,6 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
     public TelaConsultarReserva() {
         initComponents();
         atualizarTabela();
-
         Util.checkTimer();
     }
 
@@ -274,7 +273,7 @@ public class TelaConsultarReserva extends javax.swing.JFrame {
                 dataExpira.add(Calendar.DAY_OF_MONTH, 1);
                 Date dataExpiraDate = dataExpira.getTime();
 
-                reserva.setDataExpira(dataExpiraDate);
+                reserva.setDataExpira(data);
                 reserva.setStatus("NOTIFICADO");
                 reservaDAO.editarReserva(reserva);
                 atualizarTabela();
