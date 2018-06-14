@@ -143,12 +143,22 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
 
         tfAluno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfAluno.setEnabled(false);
+        tfAluno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfAlunoMouseClicked(evt);
+            }
+        });
         jPanel1.add(tfAluno);
         tfAluno.setBounds(235, 120, 300, 30);
 
         tfLivro.setEditable(false);
         tfLivro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tfLivro.setEnabled(false);
+        tfLivro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfLivroMouseClicked(evt);
+            }
+        });
         jPanel1.add(tfLivro);
         tfLivro.setBounds(235, 220, 300, 30);
 
@@ -325,70 +335,87 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if(formataData(tfData.getText()).after(data)){
-            reserva.setNomeAluno(tfAluno.getText().toUpperCase());
-            reserva.setNomeAutor(tfAutor.getText().toUpperCase());
-            reserva.setNomeLivro(tfLivro.getText().toUpperCase());
-            reserva.setEmail(tfEmail.getText());
-            reserva.setDataPrevista(formataData(tfData.getText()));
-            reserva.setStatus("ESPERA");
-
-            if(reserva.getIdReserva()== 0){
-                reservaDAO.salvarReserva(reserva);
-                JOptionPane.showMessageDialog(this, "Reserva cadastrado com sucesso");
-                
-                try{    
-            String host ="smtp.gmail.com" ;
-            String user = "oslibraryfvs@gmail.com";
-            String pass = "codingway2018";
-            String to = tfEmail.getText();
-            String from = "oslibaryfvs@gmail.com";
-            String subject = "OSLibrary FVS";
-            String messageText = "A biblioteca da FVS informa que o livro " +tfLivro.getText()+ " foi reservado. \nEstá previsto para estar disponivel no dia "+tfData.getText()+ "\nAtenciosamente Biblioteca da FVS.";
-            boolean sessionDebug = false;
- 
-            Properties props = System.getProperties();
- 
-            props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", host);
-            props.put("mail.smtp.port", "587");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.required", "true");
- 
-            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            Session mailSession = Session.getDefaultInstance(props, null);
-            mailSession.setDebug(sessionDebug);
-            Message msg = new MimeMessage(mailSession);
-            msg.setFrom(new InternetAddress(from));
-            InternetAddress[] address = {new InternetAddress(to)};
-            msg.setRecipients(Message.RecipientType.TO, address);
-            msg.setSubject(subject); msg.setSentDate(new Date());
-            msg.setText(messageText);
- 
-           Transport transport=mailSession.getTransport("smtp");
-           transport.connect(host, user, pass);
-           transport.sendMessage(msg, msg.getAllRecipients());
-           transport.close();
-           JOptionPane.showMessageDialog(this, "Email enviado para o aluno " +tfEmail.getText()+ " com sucesso !");
-        }catch(Exception ex)
-        {
-            JOptionPane.showMessageDialog(this, ex);
-        }
-                
-                limparCampos();
+        if (tfAluno.getText().equals("") || tfAutor.getText().equals("") || tfLivro.getText().equals("") || tfEmail.getText().equals("")) {
+            if (tfData.getText().equals("  /  /    ")) {
+                Date data = new Date();
+                JOptionPane.showMessageDialog(this, "Selecione uma data após dia " + converterDataString(data));
             } else {
-                reservaDAO.editarReserva(reserva);
-                JOptionPane.showMessageDialog(this, "Reserva editado com sucesso");
-                limparCampos();
-            }  
+                if (formataData(tfData.getText()).after(data)) {
+                    reserva.setNomeAluno(tfAluno.getText().toUpperCase());
+                    reserva.setNomeAutor(tfAutor.getText().toUpperCase());
+                    reserva.setNomeLivro(tfLivro.getText().toUpperCase());
+                    reserva.setEmail(tfEmail.getText());
+                    reserva.setDataPrevista(formataData(tfData.getText()));
+                    reserva.setStatus("ESPERA");
+
+                    if (reserva.getIdReserva() == 0) {
+                        reservaDAO.salvarReserva(reserva);
+                        JOptionPane.showMessageDialog(this, "Reserva cadastrado com sucesso");
+
+                        try {
+                            String host = "smtp.gmail.com";
+                            String user = "oslibraryfvs@gmail.com";
+                            String pass = "codingway2018";
+                            String to = tfEmail.getText();
+                            String from = "oslibaryfvs@gmail.com";
+                            String subject = "OSLibrary FVS";
+                            String messageText = "A biblioteca da FVS informa que o livro " + tfLivro.getText() + " foi reservado. \nEstá previsto para estar disponivel no dia " + tfData.getText() + "\nAtenciosamente Biblioteca da FVS.";
+                            boolean sessionDebug = false;
+
+                            Properties props = System.getProperties();
+
+                            props.put("mail.smtp.starttls.enable", "true");
+                            props.put("mail.smtp.host", host);
+                            props.put("mail.smtp.port", "587");
+                            props.put("mail.smtp.auth", "true");
+                            props.put("mail.smtp.starttls.required", "true");
+
+                            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+                            Session mailSession = Session.getDefaultInstance(props, null);
+                            mailSession.setDebug(sessionDebug);
+                            Message msg = new MimeMessage(mailSession);
+                            msg.setFrom(new InternetAddress(from));
+                            InternetAddress[] address = {new InternetAddress(to)};
+                            msg.setRecipients(Message.RecipientType.TO, address);
+                            msg.setSubject(subject);
+                            msg.setSentDate(new Date());
+                            msg.setText(messageText);
+
+                            Transport transport = mailSession.getTransport("smtp");
+                            transport.connect(host, user, pass);
+                            transport.sendMessage(msg, msg.getAllRecipients());
+                            transport.close();
+                            JOptionPane.showMessageDialog(this, "Email enviado para o aluno " + tfEmail.getText() + " com sucesso !");
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(this, ex);
+                        }
+
+                        limparCampos();
+                    } else {
+                        reservaDAO.editarReserva(reserva);
+                        JOptionPane.showMessageDialog(this, "Reserva editado com sucesso");
+                        limparCampos();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Impossivel registrar reserva no dia atual ou em um dia que já passou!");
+                }
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "Impossivel registrar reserva em um dia que já passou!");
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfAlunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfAlunoMouseClicked
+        JOptionPane.showMessageDialog(this, "Clique na lupa para pesquisar o aluno!");
+    }//GEN-LAST:event_tfAlunoMouseClicked
+
+    private void tfLivroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfLivroMouseClicked
+        JOptionPane.showMessageDialog(this, "Clique na lupa para pesquisar o livro!");
+    }//GEN-LAST:event_tfLivroMouseClicked
 
    
     public static void main(String args[]) {

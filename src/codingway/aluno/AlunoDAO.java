@@ -72,6 +72,13 @@ public class AlunoDAO extends HibernateUtil {
         return aluno;
     }
     
+    public Aluno pesquisarDados(int matricula, String nome, String email) {
+        iniciarSessao();
+        Aluno aluno = (Aluno) sessao.createCriteria(Aluno.class).add(Restrictions.eq("Matricula", matricula)).add(Restrictions.eq("Aluno", nome)).add(Restrictions.eq("Email", email)).uniqueResult();
+        sessao.close();
+        return aluno;
+    }
+    
     public List<Aluno> listarAlunoCurso(String curso) {
         iniciarSessao();
         List<Aluno> alunos = sessao.createCriteria(Aluno.class).add(Restrictions.eq("Curso", curso)).addOrder(Order.asc("idAluno")).list();

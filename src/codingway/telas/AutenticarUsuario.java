@@ -28,7 +28,6 @@ public class AutenticarUsuario extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -44,6 +43,7 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jsLogin = new javax.swing.JSeparator();
         jsSenha = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,18 +52,12 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(28, 17, 65));
+        jLabel2.setBackground(new java.awt.Color(11, 72, 107));
         jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(28, 17, 65));
-        jLabel2.setText("Biblioteca");
+        jLabel2.setText("OSLibrary");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(50, 30, 300, 48);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(28, 17, 65));
-        jLabel4.setText("system");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(164, 65, 50, 20);
+        jLabel2.setBounds(180, 20, 170, 50);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(28, 17, 65));
@@ -172,6 +166,11 @@ public class AutenticarUsuario extends javax.swing.JFrame {
         jPanel2.add(jPanel1);
         jPanel1.setBounds(400, 0, 300, 500);
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/Logo.png"))); // NOI18N
+        jLabel8.setToolTipText("");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(30, 10, 150, 110);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/BackLogin.png"))); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 0, 700, 500);
@@ -261,10 +260,10 @@ public class AutenticarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

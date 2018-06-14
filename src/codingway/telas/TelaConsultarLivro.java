@@ -2,6 +2,7 @@ package codingway.telas;
 
 import codingway.aluno.*;
 import codingway.livro.*;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,12 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         LivroTableModel(livroDAO.listarLivro());
         tbLivro.setModel(modelo);
     }
+    
+    public void atualizarBuscaLike(String busca){
+        LivroTableModel modelo = new 
+        LivroTableModel(livroDAO.listarBuscaLike(busca));
+        tbLivro.setModel(modelo);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -39,8 +46,8 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         btExcluir = new javax.swing.JButton();
         btRetornar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        tfBuscaLivro = new javax.swing.JTextField();
+        btBuscaLivro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,18 +138,28 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(665, 0, 35, 35);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 51));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 51)));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(420, 110, 200, 30);
+        tfBuscaLivro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tfBuscaLivro.setForeground(new java.awt.Color(0, 0, 51));
+        tfBuscaLivro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfBuscaLivro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 51)));
+        tfBuscaLivro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfBuscaLivroKeyPressed(evt);
+            }
+        });
+        jPanel1.add(tfBuscaLivro);
+        tfBuscaLivro.setBounds(420, 110, 200, 30);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2);
-        jButton2.setBounds(620, 110, 30, 30);
+        btBuscaLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/icons8_Search_20px.png"))); // NOI18N
+        btBuscaLivro.setContentAreaFilled(false);
+        btBuscaLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btBuscaLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscaLivroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btBuscaLivro);
+        btBuscaLivro.setBounds(620, 110, 30, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codingway/imagens/TelaConsultaLivro.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -221,6 +238,24 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tfBuscaLivroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscaLivroKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if(tfBuscaLivro.getText().equals("")){
+            atualizarTabela();
+        } else {
+            atualizarBuscaLike(tfBuscaLivro.getText());
+        }
+        }
+    }//GEN-LAST:event_tfBuscaLivroKeyPressed
+
+    private void btBuscaLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscaLivroActionPerformed
+        if(tfBuscaLivro.getText().equals("")){
+            atualizarTabela();
+        } else {
+            atualizarBuscaLike(tfBuscaLivro.getText());
+        }
+    }//GEN-LAST:event_btBuscaLivroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,16 +299,16 @@ public class TelaConsultarLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBuscaLivro;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btRetornar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tbLivro;
+    private javax.swing.JTextField tfBuscaLivro;
     // End of variables declaration//GEN-END:variables
 }

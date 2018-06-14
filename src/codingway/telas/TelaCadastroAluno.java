@@ -244,30 +244,36 @@ public class TelaCadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-
-        if ((AlunoDAO.pesquisarEmail(tfEmail.getText()) == null || AlunoDAO.pesquisarEmail(tfEmail.getText()).getEmail().equals(aluno.getEmail()))
-                || (AlunoDAO.pesquisarEmail(tfMatricula.getText()) == null || AlunoDAO.pesquisarMatricula(Integer.parseInt(tfEmail.getText())).getMatricula() == aluno.getMatricula())) {
-            if (tfMatricula.getText().equals("") || tfNome.getText().equals("") || tfEmail.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
-            } else {
-                aluno.setMatricula(Integer.parseInt(tfMatricula.getText()));
-                aluno.setAluno(tfNome.getText().toUpperCase());
-                aluno.setCurso(String.valueOf(jbCurso.getSelectedItem()));
-                aluno.setEmail(tfEmail.getText());
-
-                if (aluno.getIdAluno() == 0) {
-                    AlunoDAO.salvarAluno(aluno);
-                    JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso");
-                    limparCampos();
+        if (AlunoDAO.pesquisarDados(Integer.parseInt(tfMatricula.getText()), tfNome.getText().toUpperCase(), tfEmail.getText()) == null) {
+            if ((AlunoDAO.pesquisarEmail(tfEmail.getText()) == null || AlunoDAO.pesquisarEmail(tfEmail.getText()).getEmail().equals(aluno.getEmail()))
+                    || (AlunoDAO.pesquisarMatricula(Integer.parseInt(tfMatricula.getText())) == null || AlunoDAO.pesquisarMatricula(Integer.parseInt(tfEmail.getText())).getMatricula() == aluno.getMatricula())) {
+                if (tfMatricula.getText().equals("") || tfNome.getText().equals("") || tfEmail.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
                 } else {
-                    AlunoDAO.editarAluno(aluno);
-                    JOptionPane.showMessageDialog(this, "Aluno editado com sucesso");
-                    limparCampos();
-                }
+                    aluno.setMatricula(Integer.parseInt(tfMatricula.getText()));
+                    aluno.setAluno(tfNome.getText().toUpperCase());
+                    aluno.setCurso(String.valueOf(jbCurso.getSelectedItem()));
+                    aluno.setEmail(tfEmail.getText());
 
+                    if (aluno.getIdAluno() == 0) {
+                        AlunoDAO.salvarAluno(aluno);
+                        JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso");
+                        limparCampos();
+                    } else {
+                        AlunoDAO.editarAluno(aluno);
+                        JOptionPane.showMessageDialog(this, "Aluno editado com sucesso");
+                        limparCampos();
+                    }
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "O email ou matricula já existe");
             }
+
         } else {
-            JOptionPane.showMessageDialog(this, "O email ou matricula já existe");
+
+            JOptionPane.showMessageDialog(this, "Esses dados já estão armazenados no banco, impossivel salvar-lo novamente");
+
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
