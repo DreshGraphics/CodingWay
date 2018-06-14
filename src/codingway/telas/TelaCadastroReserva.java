@@ -335,7 +335,6 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if (tfAluno.getText().equals("") || tfAutor.getText().equals("") || tfLivro.getText().equals("") || tfEmail.getText().equals("")) {
             if (tfData.getText().equals("  /  /    ")) {
                 Date data = new Date();
                 JOptionPane.showMessageDialog(this, "Selecione uma data após dia " + converterDataString(data));
@@ -400,9 +399,6 @@ public class TelaCadastroReserva extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Impossivel registrar reserva no dia atual ou em um dia que já passou!");
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
-        }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
